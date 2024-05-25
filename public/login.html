@@ -11,7 +11,7 @@
     <script src="./js/sessao.js"></script>
 
     <!-- <link rel="stylesheet" href="./css/estilo.css"> -->
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/usuario.css">
     <link rel="icon" href="./assets/icon/iconeORappa.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
@@ -88,7 +88,10 @@
                 <input type="text" id="senha_input" class="form__input" autocomplete="off" placeholder=" ">
                 <span class="form__span">Senha</span>
             </div>
-            <p id="btn"><button onclick="cadastrar()" class="button">Cadastrar</button></p>
+            <p id="btn"><button onclick="entrar()" class="button">Entrar</button></p>
+            <div id="div_aguardar" class="loading-div">
+                <img src="./assets/aguarde-pink3.gif" id="loading-  gif" />
+              </div>
         </div>
     </div>
     <!-- -------BODY fim------- -->
@@ -98,7 +101,7 @@
 
 <script>
     function entrar() {
-        // aguardar();
+        aguardar();
 
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
@@ -136,8 +139,7 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.IDADE_USUARIO = json.id;
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";

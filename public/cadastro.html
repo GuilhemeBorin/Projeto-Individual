@@ -10,12 +10,12 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/login.css" />
+  <link rel="stylesheet" href="./css/usuario.css" />
   <link rel="icon" href="./assets/icon/iconeORappa.ico">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
 </head>
 
-<body onload="listar()">
+<body>
   <!-- -------HEADER inicio------- -->
   <div class="header">
     <div class="container">
@@ -51,9 +51,21 @@
   <div class="alinhaConjunto">
     <div class="conjunto">
       <h2 class="title">Bem Vindo!</h2>
-      <div class="form">
-        <input type="text" id="nome_input" class="form__input" autocomplete="off" placeholder=" ">
-        <span class="form__span">Nome</span>
+      <div class="nomeIdade">
+        <div class="form">
+          <input type="text" id="nome_input" class="form__input" autocomplete="off" placeholder=" ">
+          <span class="form__span1">Nome</span>
+        </div>
+        <div class="form_idade">
+          <span class="select_idade">Idade</span>
+          <select id="selectIdade">
+            <option value="0-12">0-12</option>
+            <option value="13-18">13-18</option>
+            <option value="19-29">19-29</option>
+            <option value="30-40">30-40</option>
+            <option value="40+">40+</option>
+          </select>
+        </div>
       </div>
       <div class="form">
         <input type="text" id="email_input" class="form__input" autocomplete="off" placeholder=" ">
@@ -68,19 +80,20 @@
         <span class="form__span">Confirmação de Senha</span>
       </div>
       <p id="btn"><button onclick="cadastrar()" class="button">Cadastrar</button></p>
+      <div id="div_aguardar" class="loading-div">
+        <img src="./assets/aguarde-pink3.gif" id="loading-  gif" />
+      </div>
     </div>
   </div>
-  <!-- <div id="div_aguardar" class="loading-div">
-    <img src="./assets/aguarde-pink3.gif" id="loading-  gif" />
-  </div> -->
 
   <!-- -------BODY fim------- -->
 </body>
+
 </html>
 
 <script>
   function cadastrar() {
-    // aguardar();
+    aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
@@ -88,6 +101,8 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var idadeVar = selectIdade.value
+
     if (
       nomeVar == "" ||
       emailVar == "" ||
@@ -115,7 +130,8 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
-        senhaServer: senhaVar
+        senhaServer: senhaVar,
+        idadeServer: idadeVar
       }),
     })
       .then(function (resposta) {

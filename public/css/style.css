@@ -1,8 +1,57 @@
-/* * {
+body {
     margin: 0;
-    background-image: url(../assets/imgs/fundophoto.jpg);
+    padding: 0;
+    font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#ab {
-    
-} */
+/* -------HEADER------- */
+.header {
+    height: var(--tamanho-header);
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}   
+
+.header a {
+    text-decoration: none;
+    color: #e3b062;
+}
+
+.agora {
+    font-weight: 800;
+}
+
+.navbar {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    color: #e3b062;
+}
+
+.titulo {
+    color: #32b9cd;
+    width: fit-content;
+    font-weight: 500;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* -------BANNER------- */
+.social .container {
+    background: url(../assets/PraQuemTemFe.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
