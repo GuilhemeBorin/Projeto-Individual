@@ -15,7 +15,7 @@ body {
 }
 
 .conjunto {
-  background: url(../public/assets/PraQuemTemFe.gif);
+  /* background: url(../public/assets/PraQuemTemFe.gif); */
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Convergence", sans-serif;
