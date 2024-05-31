@@ -15,7 +15,10 @@ CREATE TABLE usuario (
     idade CHAR(5)
 );
 
-
+CREATE TABLE quiz (
+    id int PRIMARY KEY AUTO_INCREMENT,
+    questao1 varchar()
+);
 -- CREATE DATABASE aquatech;
 
 -- USE aquatech;

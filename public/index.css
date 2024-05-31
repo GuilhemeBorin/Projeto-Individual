@@ -14,20 +14,31 @@ body {
   padding: 0;
 }
 
-.conjunto {
-  /* background: url(../public/assets/PraQuemTemFe.gif); */
+.logoBanda {
+  filter: invert();
+  display: flex;
+  position: relative;
+  right: 330px;
+  width: 550px;
+  height: 600px;
+}
+
+.espacamento {
+  height: 60px;
+}
+
+.divFotoBanda {
+  background-image: url(../public/assets/banda/BandaNoMuro.JPG);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Convergence", sans-serif;
   font-size: 1.2rem;
-  height: 215vh;
+  height: 716px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -100px;
-  /* background-image: linear-gradient(to top, black); */
 }
 
 .container {
@@ -37,18 +48,30 @@ body {
 }
 
 .header {
-  width: 80%;
-}
-
-.header .container {
-  justify-content: space-between;
+  background-color: #32b9cd;
+  width: 100%;
+  display: flex;
   align-items: center;
-  height: 10%;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
 }
 
 .header a {
   text-decoration: none;
   color: #e3b062;
+  padding: 35px;
+}
+
+li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header img {
+  display: flex;
+  position: relative;
+  width: 80px;
 }
 
 .agora {
@@ -56,16 +79,16 @@ body {
 }
 
 .navbar {
-  width: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style: none;
   color: #e3b062;
 }
 
+
 .titulo {
-  color: #32b9cd;
+  color: #062024;
   width: fit-content;
   font-weight: 500;
 }
@@ -91,6 +114,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
+  text-align: justify;
 }
 
 p {
@@ -157,7 +181,7 @@ body {
   will-change: transform, filter, rotateY, width;
 }
 
- .item::before,
+.item::before,
 .item::after {
   content: '';
   position: absolute;
