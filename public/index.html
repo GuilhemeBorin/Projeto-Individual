@@ -8,7 +8,7 @@
 
     <title>O Rappa | Página Inicial</title>
 
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link rel="shortcut icon" href="./assets/icon/favIcon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -21,13 +21,13 @@
 <body>
     <div class="header">
         <nav class="navbar">
-            <a href="texte.html">Inicial</a>
-            <a href="simulador.html">Sobre</a>
-            <a href="simulador.html">Discografia</a>
-            <img class="logoBandaNav" src="../public/assets/imgs/ORAPPA.png">
-            <a href="simulador.html">Quiz</a>
-            <a href="login.html">Login</a>
-            <a href="cadastro.html">Cadastro</a>
+            <a href="./index.html">Inicial</a>
+            <a href="./simulador.html">Sobre</a>
+            <a href="./simulador.html">Discografia</a>
+            <img class="logoBandaNav" src="../public/assets/imgs/ORaioRappa.png" style="width: 95px;">
+            <a href="./simulador.html">Quiz</a>
+            <a href="./login.html">Login</a>
+            <a href="./cadastro.html">Cadastro</a>
         </nav>
     </div>
 
@@ -36,7 +36,7 @@
     </div>
 
     <div class="divFotoBanda">
-        <img class="logoBanda" src="../public/assets/imgs/ORAPPA.png" alt="">
+        <img class="logoBanda" src="../public/assets/imgs/ORaioRappa.png" alt="">
     </div>
 
     <div class="conjunto2">
@@ -46,24 +46,95 @@
                 de fãs ao longo dos anos. Seus álbuns icônicos, como "Lado B Lado A" e "O Silêncio Q Precede O
                 Esporro",marcaram a música brasileira com mensagens de resistência e esperança. <br><br> Saiba Mais </p>
         </div>
+
+        <!-- Slideshow container -->
         <div class="sobreFoto">
-            <img src="../public/assets/imgs/Banda.jpg" alt="">
+            <div class="sobreFoto-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="Integrantes fade">
+                    <img src="../public/assets/banda/MarceloFalcao.jpg" style="width:100%">
+                    <div class="text">Marcelo Falcão</div>
+                </div>
+
+                <div class="Integrantes fade">
+                    <img src="../public/assets/banda/Banda3.jpg" style="width:100%">
+                    <div class="text">Caption Two</div>
+                </div>
+
+                <div class="Integrantes fade">
+                    <img src="../public/assets/banda/Banda.jpg" style="width:100%">
+                    <div class="text">Caption Three</div>
+                </div>
+
+                <div class="Integrantes fade">
+                    <img src="../public/assets/banda/Banda.jpg" style="width:100%">
+                    <div class="text">Caption Three</div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
         </div>
+        <br>
+
+        <!-- The radios/circles -->
+        <div style="text-align:center">
+            <span class="radio" onclick="currentSlide(1)"></span>
+            <span class="radio" onclick="currentSlide(2)"></span>
+            <span class="radio" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
     </div>
 
     <div class="wrapper">
+        <div class="wrapperTitle">
+            <h1>Principais Álbuns</h1>
+        </div>
         <div class="items">
             <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/1ORappa.jpg)"></div>
-            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/2RappaMundi.jpg)"></div>
-            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/3LadoBLadoA.jpg)"></div>
+            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/2RappaMundi.jpg)">
+            </div>
+            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/3LadoBLadoA.jpg)">
+            </div>
             <div class="item" tabindex="0"
                 style="background-image: url(../public/assets/albuns/4OSilêncioQPrecedeOEsporro.jpg)"></div>
-            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/5SeteVezes.jpg)"></div>
+            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/5SeteVezes.jpg)">
+            </div>
             <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/6NuncaTemFim.jpg)">
             </div>
-            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/7Acustico.jpg)"></div>
+            <div class="item" tabindex="0" style="background-image: url(../public/assets/albuns/7Acustico.jpg)">
+            </div>
         </div>
     </div>
+
+    <div class="sobreMim">
+        <div class="sobreMim-texto">
+            <p>
+                Olha só! Você por aqui!
+                <br>
+                Tudo bem?
+                <br>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam corporis harum deleniti iste vero
+                dolores facilis. Iusto, ducimus dolor culpa praesentium corrupti quos maiores placeat exercitationem
+                officia provident dolorem at. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
+                perspiciatis debitis, veniam, sapiente eligendi inventore, sequi totam earum ipsum corporis similique?
+                Eos voluptates nam odit quasi alias, asperiores nemo possimus!
+            </p>
+
+            <div>
+
+            </div>
+        </div>
+        <div class="sobreMim-foto">
+            <!-- Insira sua Foto aqui -->
+        </div>
+    </div>
+
+
+
+
+
 
     <!-- <footer class="rodape">
         <div class="column1">
@@ -110,3 +181,20 @@
         </div>
     </footer> -->
 </body>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("Integrantes");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change image every 2 seconds
+    }
+</script>

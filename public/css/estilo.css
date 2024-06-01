@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Convergence&display=swap');
-
 body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  overflow: hidden;
   background-color: black
 }
 
@@ -24,18 +20,30 @@ body {
 }
 
 .header {
-  height: var(--tamanho-header);
-}
-
-.header .container {
-  justify-content: space-between;
+  background-color: #32b9cd;
+  width: 100%;
+  display: flex;
   align-items: center;
-  height: 100%;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
 }
 
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  color: #2228ea;
+  padding: 35px;
+}
+
+li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header img {
+  display: flex;
+  position: relative;
+  width: 80px;
 }
 
 .agora {
@@ -43,16 +51,16 @@ body {
 }
 
 .navbar {
-  width: 300px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style: none;
   color: #e3b062;
 }
 
+
 .titulo {
-  color: #32b9cd;
+  color: #062024;
   width: fit-content;
   font-weight: 500;
 }
@@ -60,9 +68,6 @@ body {
 .header h1 {
   margin: 0;
 }
-
-
-/* BANNER */
 
 
 /*LOGIN */

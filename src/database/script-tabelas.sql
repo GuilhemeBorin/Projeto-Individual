@@ -8,7 +8,7 @@ CREATE DATABASE projetoIndividual;
 USE projetoIndividual;
 
 CREATE TABLE usuario (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    idUsuario INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(45),
     email VARCHAR(45),
     senha VARCHAR(45),
@@ -16,9 +16,19 @@ CREATE TABLE usuario (
 );
 
 CREATE TABLE quiz (
-    id int PRIMARY KEY AUTO_INCREMENT,
-    questao1 varchar()
+    idQuiz INT PRIMARY KEY AUTO_INCREMENT,
+    fkUsuario INT,
+    qtdPerguntas INT DEFAULT 11, 
+    qtdAcertos INT,
+    FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 );
+
+-- CREATE TABLE formulario {
+--     idFormulario INT PRIMARY KEY AUTO_INCREMENT,
+    
+-- }
+
+
 -- CREATE DATABASE aquatech;
 
 -- USE aquatech;

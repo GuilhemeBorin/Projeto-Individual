@@ -19,6 +19,7 @@ var usuarioRouter = require("./src/routes/usuarios");
 var quizRouter = require("./src/routes/quiz");
 var medidasRouter = require("./src/routes/medidas");
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));

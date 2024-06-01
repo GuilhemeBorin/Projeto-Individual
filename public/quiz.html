@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/quiz.css">
+    <link rel="stylesheet" href="./css/quiz.css">
     <link rel="shortcut icon" href="../public/assets/icon/favIcon.ico">
+    <script src="./js/sessao.js"></script>
     <title>Quiz | O Rappa</title>
 </head>
 
@@ -79,17 +80,18 @@
             options: ["2015", "2017", "2018", "2020"],
             answer: "2017"
         },
-        
+
     ];
 
+    let score = 0;
+
     function iniciarQuiz() {
-        mensagem.style.display = 'none'
         document.getElementById("iniciar").style.display = 'none';
         const questionElement = document.getElementById("question");
         const optionsElement = document.getElementById("options");
 
         let currentQuestion = 0;
-        let score = 0;
+        score = 0;
 
         function showQuestion() {
             const question = quizData[currentQuestion];
@@ -117,6 +119,7 @@
             if (currentQuestion < quizData.length) {
                 showQuestion();
             } else {
+                enviar();
                 showResult();
             }
         }
@@ -127,23 +130,43 @@
             document.getElementById("quiz").innerHTML = `
                 <h1>Quiz Concluído</h1>
                 <p>Você acertou ${score} de um total de ${quizData.length} questões</p>
-                <button id="restart" onclick="reiniciarQuiz()">Recomeçar Quiz</button>
-                <button id="restart" onclick="voltarDash()">voltar para Dashboard</button>
+                <button class="restart" onclick="reiniciarQuiz()">Recomeçar Quiz</button>
+                <button class="restart" onclick="voltarDash()">voltar para Dashboard</button>
             `;
         }
         showQuestion();
     }
+    function enviar() {
+        fetch("/quiz/enviar", {
+            method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+            },
+                body: JSON.stringify({
+                    usuarioServer: sessionStorage.ID_USUARIO,
+                    scoreServer: score
+                }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+                })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
+        }
+
 
     function reiniciarQuiz() {
         document.getElementById("quiz").innerHTML = `
-            <h1>Será que você conhece a banda O Rappa?</h1>
-            <div id="question"></div>
-            <div id="options"></div>
-            <button id="iniciar" onclick="iniciarQuiz()">Iniciar Quiz</button>
+        <h1>Bem Vindo!</h1><br>
+        <h2 id="mensagem" style="display: block;">Será que você conhece O Rappa?</h2>
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="iniciar" onclick="iniciarQuiz()">Iniciar Quiz</button>
         `;
     }
 
-    function voltarDash(){
+    function voltarDash() {
         window.location = "dash.html"
     }
 </script>
