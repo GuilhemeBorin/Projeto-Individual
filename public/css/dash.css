@@ -37,8 +37,7 @@ body {
     background: #212140;
 }
 
-/* MAIN MENU */
-
+/* MENU */
 main {
     display: grid;
     grid-template-columns: 13% 87%;

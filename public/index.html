@@ -21,13 +21,13 @@
 <body>
     <div class="header">
         <nav class="navbar">
-            <a href="./index.html">Inicial</a>
-            <a href="./simulador.html">Sobre</a>
-            <a href="./simulador.html">Discografia</a>
             <img class="logoBandaNav" src="../public/assets/imgs/ORaioRappa.png" style="width: 95px;">
-            <a href="./simulador.html">Quiz</a>
-            <a href="./login.html">Login</a>
-            <a href="./cadastro.html">Cadastro</a>
+            <a href="./index.html">INICIAL</a>
+            <a href="#chamaSobre">SOBRE</a>
+            <a href="#Discografia">DISCOGRAFIA</a>
+            <a href="./quiz.html">QUIZ</a>
+            <a href="./login.html">LOGIN</a>
+            <a href="./cadastro.html">CADASTRO</a>
         </nav>
     </div>
 
@@ -44,36 +44,50 @@
             <p>O Rappa, banda carioca formada em 1993, é conhecida por sua fusão única de reggae, rock, rap e música
                 popular brasileira. Com letras que abordam questões sociais e políticas, a banda conquistou uma legião
                 de fãs ao longo dos anos. Seus álbuns icônicos, como "Lado B Lado A" e "O Silêncio Q Precede O
-                Esporro",marcaram a música brasileira com mensagens de resistência e esperança. <br><br> Saiba Mais </p>
+                Esporro",marcaram a música brasileira com mensagens de resistência e esperança. </p>
+            <div class="divSaibaMais">
+                <img src="./assets/imgs/DedoApontando.png" alt="">
+                <a href="./sobre.html"><i>Saiba Mais</i></a>
+            </div>
         </div>
 
         <!-- Slideshow container -->
-        <div class="sobreFoto">
+        <div id="chamaSobre" class="sobreFoto">
             <div class="sobreFoto-container">
                 <!-- Full-width images with number and caption text -->
                 <div class="Integrantes fade">
                     <img src="../public/assets/banda/MarceloFalcao.jpg" style="width:100%">
-                    <div class="text">Marcelo Falcão</div>
+                    <div class="NameSobre">Marcelo Falcão </div>
+                    <p>(vocalista)</p>
                 </div>
 
                 <div class="Integrantes fade">
-                    <img src="../public/assets/banda/Banda3.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
+                    <img src="../public/assets/banda/Xandão.jpg" style="width:100%">
+                    <div class="NameSobre">Xandão</div>
+                    <p>(guitarrista)</p>
                 </div>
 
                 <div class="Integrantes fade">
-                    <img src="../public/assets/banda/Banda.jpg" style="width:100%">
-                    <div class="text">Caption Three</div>
+                    <img src="../public/assets/banda/Marcelo Yuka.jpg" style="width:100%">
+                    <div class="NameSobre">Marcelo Yuka</div>
+                    <p>(baterista e letrista)</p>
                 </div>
 
                 <div class="Integrantes fade">
-                    <img src="../public/assets/banda/Banda.jpg" style="width:100%">
-                    <div class="text">Caption Three</div>
+                    <img src="../public/assets/banda/Marcelo Lobato.jpg" style="width:100%">
+                    <div class="NameSobre">Marcelo Lobato</div>
+                    <p>(tecladista, percussionista <br>e baterista)</p>
                 </div>
-
-                <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div class="Integrantes fade">
+                    <img src="../public/assets/banda/Lauro Farias.png" style="width:100%">
+                    <div class="NameSobre">Lauro Farias</div>
+                    <p>(baixista)</p>
+                </div>
+                <div class="Integrantes fade">
+                    <img src="../public/assets/banda/Nelson Meirelles.jpg" style="width:100%">
+                    <div class="NameSobre">Nelson Meirelles</div>
+                    <p>(baixista)</p>
+                </div>
             </div>
         </div>
         <br>
@@ -87,7 +101,7 @@
     </div>
     </div>
 
-    <div class="wrapper">
+    <div id="Discografia" class="wrapper">
         <div class="wrapperTitle">
             <h1>Principais Álbuns</h1>
         </div>
@@ -121,9 +135,7 @@
                 perspiciatis debitis, veniam, sapiente eligendi inventore, sequi totam earum ipsum corporis similique?
                 Eos voluptates nam odit quasi alias, asperiores nemo possimus!
             </p>
-
             <div>
-
             </div>
         </div>
         <div class="sobreMim-foto">
@@ -131,55 +143,50 @@
         </div>
     </div>
 
-
-
-
-
-
-    <!-- <footer class="rodape">
+    <footer class="rodape">
         <div class="column1">
             <h2><img src="../public/assets/imgs/theicon copiar.png" alt="LogoRHS">O Rappa</h2>
-            <p>RHS é uma empresa de tecnologia voltada a preservação das espécies dos répteis através do
-                monitoramento de seus habitats, com o objetivo de facilitar para os criadores de répteis em sua
-                manutenção.
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae eligendi labore sapiente. Repellendus
+                consequuntur perspiciatis beatae ab dicta velit quasi non quis nulla, adipisci incidunt molestias ipsum
+                hic animi? Reiciendis.
             </p>
             <div class="logos">
-                <a href="https://www.facebook.com"><img class="icone1" src="IMG/iconefacebook.png"
+                <a href="https://www.facebook.com"><img class="icone1" src="./assets/icones/iconefacebook.png"
                         alt="Ícone do Facebook"></a>
-                <a href="https://www.instagram.com"><img class="icone2" src="IMG/iconeinstagram.png"
+                <a href="https://www.instagram.com"><img class="icone2" src="./assets/icones/iconeinstagram.png"
                         alt="Ícone do Instagram"></a>
-                <a href="https://www.twitter.com"><img class="icone3" src="IMG/iconetwitterx.png"
+                <a href="https://www.twitter.com"><img class="icone3" src="./assets/icones/iconetwitterx.png"
                         alt="Ícone do Twitter"></a>
-                <a href="https://br.linkedin.com"><img class="icone4" src="IMG/iconelinkedin.png"
-                        alt="Ícone do Linkedin"></a>
             </div>
         </div>
         <div class="column2">
             <h2>Menu</h2>
             <div class="lista"></div>
-            <a href="HomePage.html" class="uno">Início</a>
-            <a href="Sobre.html">Sobre Nós</a>
-            <a href="ConhecaEquipe.html">Equipe</a>
-            <a href="simulador.html">Simulador</a>
-            <a href="cadastro2.html">Cadastro</a>
-            <a href="login2.html">Login</a>
+            <a href="./index.html" class="uno">Início</a>
+            <a href="#chamaSobre">Sobre</a>
+            <a href="#Discografia">Álbuns</a>
+            <a href="./cadastro.html">Cadastro</a>
+            <a href="./quiz.html">Quiz</a>
+            <a href="./login.html">Login</a>
         </div>
         <div class="column3">
             <div class="logos2">
                 <h2>Contato</h2>
-                <p><img class="icone5" src="IMG/iconelocal.png" alt="Ícone do local"><a href="">Rua Haddock Lobo,
+                <p><img class="icone5" src="./assets/icones/iconelocal.png" alt="Ícone do local"><a href="">Rua Haddock
+                        Lobo,
                         595 <br><b>Cerqueira César, São Paulo</b></a></p>
-                <p><img class="icone6" src="IMG/iconetelefone.png" alt="Ícone do número"><a href=""></a>+55
-                    94488-4530 <br> +55 96723-2879</a></p>
-                <p><img class="icone7" src="IMG/iconeemail.png" alt="Ícone do email"><a
-                        href="">reptihabitatsolutions@gmail.com</a></p>
+                <p class="p1"><img class="icone6" src="./assets/icones/iconetelefone.png" alt="Ícone do número"><a
+                        href=""></a>+55
+                    (11)94488-4531</p>
+                <p class="p1"><img class="icone7" src="./assets/icones/iconeemail.png" alt="Ícone do email"><a
+                        href="">guilhermebg2004@gmail.com</a></p>
             </div>
-            <iframe
+            <!-- <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.2881607958625!2d-46.66425002467007!3d-23.55809197880215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59d2a5270055%3A0x3c7ea4f4c7d51fb6!2sRua%20Haddock%20Lobo%2C%20595%20-%20Cerqueira%20C%C3%A9sar%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001414-001!5e0!3m2!1spt-BR!2sbr!4v1714872768626!5m2!1spt-BR!2sbr"
                 width="260" height="260" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                referrerpolicy="no-referrer-when-downgrade"></iframe> -->
         </div>
-    </footer> -->
+    </footer>
 </body>
 
 <script>

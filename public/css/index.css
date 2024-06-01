@@ -1,8 +1,10 @@
-
+@import url('https://fonts.cdnfonts.com/css/draconian-typewriter');
+/* font-family: 'Draconian Typewriter', sans-serif; */
+                                                
 body {
-  /* height: 900vh; */
-  background-color: black;
+  background-color: #000;
   overflow-x:hidden;
+  font-family: 'Draconian Typewriter', sans-serif;
 }
 
 *,
@@ -26,7 +28,7 @@ body {
 }
 
 .divFotoBanda {
-  background-image: url(../assets/banda/BandaNoMuro.JPG);
+  background-image: linear-gradient(rgba(0,0,0, 0.05), rgba(0,0,0)), url(../assets/banda/BandaNoMuro.JPG);
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Convergence", sans-serif; 
@@ -37,6 +39,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 150px;
 }
 
 .container {
@@ -46,7 +49,7 @@ body {
 }
 
 .header {
-  background-color: #32b9cd;
+  background-color: #000000;
   width: 100%;
   display: flex;
   align-items: center;
@@ -56,9 +59,11 @@ body {
 }
 
 .header a {
+  font-family: 'Draconian Typewriter', sans-serif;
+  font-size: medium;
   text-decoration: none;
-  color: #2228ea;
   padding: 35px;
+  color: #ffffff;
 }
 
 li {
@@ -84,20 +89,11 @@ li {
   color: #e3b062;
 }
 
-
-.titulo {
-  color: #062024;
-  width: fit-content;
-  font-weight: 500;
-}
-
 .header h1 {
   margin: 0;
 }
 
-
-
-/* ------------------------------------------------------------------------------------ */
+/* ------------------SOBRE------------------ */
 
 .conjunto2 {
   display: flex;
@@ -106,30 +102,52 @@ li {
 }
   
 .sobreTexto {
-  background-color: brown;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  max-width: 55%;
   text-align: justify;
+  font-size: larger;
+  flex-direction: column;
 }
 
-p {
+.sobreTexto p {
   display: flex;
-  align-items: center;
+  align-items:self-start;
   justify-content: center;
   color: whitesmoke;
-  width: 60%;
-  height: 100vh;
+  flex-direction: column;
+  width: 50%;
+  height: 52vh;
 }
- 
+
+.sobreTexto img {
+  width: 80px;
+  filter: invert();
+}
+
+.sobreTexto a{
+  text-decoration: underline;
+  color: #FFF;
+  margin-right: 190px;
+}
+
+.divSaibaMais {
+  display: flex;
+  
+}
+
 .sobreFoto {
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%; 
+  position: relative; 
+  right: 80px;
 }
+
 
 /* ------------------SLIDER------------------ */
 * {
@@ -140,8 +158,17 @@ p {
 .sobreFoto-container {
   width: 100%;
   max-height: 100%;
-  /* position: relative; */
   margin: auto;
+}
+
+.sobreFoto-container p {
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  position: relative;
+  top: 5px;
 }
 
 /* Hide the images by default */
@@ -178,17 +205,6 @@ p {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Caption text */
-/*.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}*/
-
 
 /* The radios/bullets/indicators */
  .text {
@@ -199,11 +215,7 @@ p {
   display: inline-block;
   transition: background-color 0.6s ease;
 } 
-/* 
-.active,
-.radio:hover {
-  background-color: red;
-} */
+
 
 /* Fading animation */
 .fade {
@@ -222,8 +234,7 @@ p {
 }
 
 
-
-/* ------------------------------------------------------------------------------------ */
+/* ------------------ÁLBUNS------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -233,10 +244,6 @@ p {
 :root {
   --index: calc(1vw + 1vh);
   --transition: cubic-bezier(.1, .7, 0, 1);
-}
-
-body {
-  background-color: #141414;
 }
 
 .wrapper {
@@ -251,9 +258,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  color: #FFF;
   position: relative;
-  bottom: 100px;
+  bottom: 70px;
+}
+
+.NameSobre {
+  font-family: 'Draconian Typewriter', sans-serif; 
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .items {
@@ -348,7 +363,7 @@ body {
   margin: 0.45vw;
 }
 
-
+/* ------------------SOBRE MIM------------------ */
 .sobreMim{
   display: flex;
   justify-content: center;
@@ -356,15 +371,202 @@ body {
 }
 
 .sobreMim-texto{
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  position: relative;
+  top: 50px;
+  padding-bottom: 200px;
+}
+
+.sobreMim p {
   text-align: justify;
+  display: flex;
+  align-items:self-start;
+  justify-content: center;
+  color: whitesmoke;
+  flex-direction: column;
+  width: 60%;
+  height: 55vh;
 }
 
 .sobreMim-foto {
-  width: 100%;
+  width: 50%;
   height: 400px;
   background-image: url(../assets/imgs/ORAPPA.png);
   background-repeat: no-repeat;
+  position: relative;
+}
+
+
+/* ------------------FOOTER------------------ */
+footer {
+  background-color: #000;
+  color: #FFF;
+  width: 100%;
+  height: 350px;
+  padding: 30px;
+  display: flex;
+}
+
+footer p{
+  width: 375px; 
+  position: relative;
+  top: 10px;
+}
+
+/* Detalhes da parte esquerda do Footer */
+.column1 {
+  margin-left: 10px;
+  width: 440px;
+  border-right: solid;
+  text-align: justify;
+}
+
+.column1 h2{
+  display: flex;
+  align-items: center;
+  font-size: 27px;
+}
+
+.column1 img{
+  border-radius: 100%;
+  margin-right: 3px;
+  height: 50px;
+  width: 50px;
+}
+
+/* Detalhes da parte central do Footer */
+.column2{
+  display: flex;
+  flex-direction: column;
+  border-right: solid;
+  margin-left: 20px;
+  width: 302px;
+}
+
+.column2 h2{
+  margin-left: 20px;
+}
+
+.column2 a{
+  margin-left: 20px;
+  text-decoration:none;
+  color: #FFF;
+  margin-bottom: 5px;
+  position: relative;
+  top: 20px;
+}
+
+/* Detalhes da parte direita do Footer */
+.column3{
+  margin-left: 10px;
+  width: 440px;
+  display: flex;
+}
+
+.column3 h2{
+  position: relative;
+  left: 10px;
+  top: -19px;
+}
+
+.column3 p{
+  display: flex;
+  align-items: center;
+  position: relative;
+  left: 15px;
+  width: 330px;
+  top: -3px;
+}
+
+.column3 .p1{
+  margin-top: 8px;
+}
+
+.column3 a{
+  text-decoration:none;
+  margin-left: 10px;
+  color: #FFF;
+}
+
+/* Mapa do Endereço */
+iframe{
+  border-radius: 20px;
+  margin: 10px;
+}
+
+/* Div dos ícones (facebook, instagram, twitter) */
+.logos {
+  position: relative;
+  top: 20px;
+}
+
+.logos2 {
+  position: relative;
+  top: 20px;
+}
+/* Tamanho dos ícones (facebook, instagram, twitter) */
+.logos .icone1{
+  height: 34px;
+  width: 34px;
+}
+.logos .icone2{
+  height: 32px;
+  width: 32px;
+}
+.logos .icone3{
+  height: 33px;
+  width: 32px;
+}   
+
+
+/* Ícones localização, telefone e email */
+.icone5{
+  height: 29px;
+  width: 29px;
+}
+.icone6{
+  height: 29px;
+  width: 29px;
+}
+.icone7{
+  height: 32px;
+  width: 32px;
+}
+
+/* Animação dos ícones Footer*/
+.logos .icone1:hover {
+  transform: translateY(-5px);
+  transition: all 0.4s;
+}
+.logos .icone2:hover {
+  transform: translateY(-5px);
+  transition: all 0.4s;
+}
+.logos .icone3:hover {
+  transform: translateY(-5px);
+  transition: all 0.4s;
+}
+.logos .icone4:hover {
+  transform: translateY(-5px);
+  transition: all 0.4s;
+} 
+.logos2 .icone5:hover {
+  transform: translateY(-5px);
+  transition: all 0.4s;
+} 
+.logos2 .icone6:hover {
+  transform: translateY(-5px);
+  transition: all 0.4s;
+} 
+.logos2 .icone7:hover {
+  transform: translateY(-5px);
+  transition: all 0.4s;
+} 
+
+/* Animação do menu */
+.column2 a:hover{
+  transform: translateX(5px);
+  transition: all 0.4s;
 }
