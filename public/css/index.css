@@ -391,6 +391,7 @@ li {
 }
 
 .sobreMim-foto {
+  filter: invert();
   width: 50%;
   height: 400px;
   background-image: url(../assets/imgs/ORAPPA.png);

@@ -11,7 +11,7 @@
     <title>O Rappa | Dashboard</title>
 </head>
 
-<body>
+<body onload="buscarSexo()">
     <main>
         <nav class="main-menu">
             <h1>Fitness App</h1>
@@ -146,23 +146,132 @@
 
 
 <script>
-    const navItems = document.querySelectorAll(".nav-item");
 
-    navItems.forEach((navItem, i) => {
-        navItem.addEventListener("click", () => {
-            navItems.forEach((item, j) => {
-                item.className = "nav-item";
+    function buscarSexo() {
+        fetch("/formulario/receberForm", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (data) {
+                        // Extrai as quantidades do objeto de resultados
+                        let quantidades = data.map(item => item.quantidade);
+                        // Atualiza os dados do gráfico
+                        graficoSexo.data.datasets[0].data = quantidades;
+                        graficoSexo.update(); // Atualiza o gráfico com os novos dados
+                    });
+                } else {
+                    throw "Houve um erro ao tentar trazer o resultado";
+                }
+            })
+            .catch(function (erro) {
+                console.log(`#ERRO: ${erro}`);
             });
-            navItem.className = "nav-item active";
-        });
+    }
+
+
+    const ctx = document.getElementById('myChart');
+
+    let graficoSexo = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Feminino', 'Masculino'],
+            datasets: [{
+                label: 'Gênero',
+                backgroundColor: ['#a82ba8', '#368a8a'],
+                data: [],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
     });
 
 
 
-    const labels = [
-        'Masculino',
-        'Feminino',
-    ];
+
+    // function buscarSexo() {
+    //     fetch("/formulario/receberForm", {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         }
+    //     })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 resposta.json().then(function (data) {
+    //                     console.log(data)
+    //                     graficoSexo.data.datasets[0].data = [data[0]];
+    //                     graficoSexo.update(); // Atualiza o gráfico com os novos dados
+    //                 })
+
+    //             } else {
+    //                 throw "Houve um erro ao tentar trazer o resultado";
+    //             }
+    //         })
+    //         .catch(function (erro) {
+    //             console.log(`#ERRO: ${erro}`);
+    //         });
+    // }
+
+
+    // function buscarSexo() {
+    //     fetch("/formulario/receberForm", {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         }
+    //     })
+    //         .then(function (resposta) {
+    //             if (resposta.ok) {
+    //                 return resposta.json();
+    //             } else {
+    //                 throw new Error("Houve um erro ao tentar trazer o resultado");
+    //             }
+    //         })
+    //         .then(function (data) {
+    //             if (data.length === 0) {
+    //                 console.warn("Nenhum resultado encontrado");
+    //                 return;
+    //             }
+
+    //             // Atualizar o gráfico com os dados recebidos
+    //             atualizarGraficoSexo(data);
+    //         })
+    //         .catch(function (erro) {
+    //             console.error(`#ERRO: ${erro}`);
+    //         });
+    // }
+
+    // function atualizarGraficoSexo(dados) {
+    //     const ctx = document.getElementById('myChart').getContext('2d');
+    // }
+
+    // const navItems = document.querySelectorAll(".nav-item");
+
+    // navItems.forEach((navItem, i) => {
+    //     navItem.addEventListener("click", () => {
+    //         navItems.forEach((item, j) => {
+    //             item.className = "nav-item";
+    //         });
+    //         navItem.className = "nav-item active";
+    //     });
+    // });
+
+
+
+    // const labels = [
+    //     'Masculino',
+    //     'Feminino',
+    // ];
     const labels2 = [
         'Rappa Mundi',
         'Lado B Lado A',
@@ -174,17 +283,17 @@
     //  aqui muda a cor das letra
     Chart.defaults.color = '#00000';
 
-    const data = {
-        labels: labels,
-        datasets: [{
-            label: 'Sexo mais presente',
-            backgroundColor: ["white", "#fffff"],
-            borderColor: '#000',
-            textStrokeColor: '#fff',
-            data: [15, 20],
-        },
-        ]
-    };
+    // const data = {
+    //     labels: labels,
+    //     datasets: [{
+    //         label: 'Sexo mais presente',
+    //         backgroundColor: ["white", "#fffff"],
+    //         borderColor: '#000',
+    //         textStrokeColor: '#fff',
+    //         data: [15, 20],
+    //     },
+    //     ]
+    // };
     const data2 = {
         labels: labels2,
         datasets: [{
@@ -196,21 +305,21 @@
         ]
     };
 
-    const config = {
-        type: 'pie',
-        data: data,
-        options: {}
-    };
+    // const config = {
+    //     type: 'pie',
+    //     data: data,
+    //     options: {}
+    // };
     const config2 = {
-        type: 'horizontalBar',
+        type: 'bar',
         data: data2,
         options: {}
     };
 
-    const myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
+    // const myChart = new Chart(
+    //     document.getElementById('myChart'),
+    //     config
+    // );
     const myChart2 = new Chart(
         document.getElementById('myChart2'),
         config2
@@ -273,8 +382,7 @@
 
         return false;
     }
-    selecionarFilme()
-    selecionarlado()
+    // selecionarFilme()
+    // selecionarlado()
 
 </script>
-

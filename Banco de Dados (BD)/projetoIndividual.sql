@@ -17,5 +17,31 @@ CREATE TABLE quiz (
     FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario)
 );
 
+create table album (
+idAlbum int primary key auto_increment,
+nomeAlbum varchar(50),
+qtdVotos int
+);
+
+create table formulario (
+idForm int primary key auto_increment,
+fkUsuario int,
+sexoUsuario char(1),
+fkAlbum int,
+foreign key (fkAlbum) references album(idAlbum),
+foreign key (fkUsuario) references usuario(idUsuario)
+);
+
+INSERT INTO album (nomeAlbum) VALUES 
+('O Rappa'),
+('Rappa Mundi'),
+('Lado B Lado A'),
+('O Silêncio Q Precede o Esporro'),
+('7 Vezes'),
+('Nunca Tem Fim...'),
+('Nao Possui');
+
+
 SELECT * FROM usuario;
 SELECT * FROM quiz;
+SELECT * FROM album;
