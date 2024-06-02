@@ -61,6 +61,11 @@ li {
   color: #e3b062;
 }
 
+.navbar a:hover {
+  color: #be9a8c;
+  transition: all 0.5s;
+}
+
 
 .titulo {
   color: #062024;

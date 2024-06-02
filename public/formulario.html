@@ -54,6 +54,16 @@
 
             </ul>
         </nav>
+        <div class="modal1 modal">
+            <div class="contentmodal">
+                SELECIONE TODOS OS CAMPOS PARA CONTINUAR!
+            </div>
+        </div>
+        <div class="modal2 modal">
+            <div class="contentmodal" id="modal_resposta">
+                RESPOSTA REGISTRADA COM SUCESSO!
+            </div>
+        </div>
         <section class="content">
             <div class="left-content">
                 <div class="conteudoFormulario">
@@ -67,7 +77,7 @@
 
                     </section>
 
-                    <section class="album">
+                    <section class="album" onclick="mudarAlbum()">
                         <h3>Qual seu álbum favorito?</h3>
                         <input type="radio" id="duvida2a" class="btn1.2" name="duvida2" value="1">
                         <label class="duvida21" for="duvida2a">O Rappa</label><br>
@@ -80,11 +90,11 @@
                         <input type="radio" id="duvida2e" class="btn5.2" name="duvida2" value="5">
                         <label class="duvida25" for="duvida2e">7 Vezes</label><br>
                         <input type="radio" id="duvida2f" class="btn6.2" name="duvida2" value="6">
-                        <label class="duvida26" for="duvida2e">Nunca Tem Fim...</label><br>
-                        <input type="radio" id="duvida2f" class="btn6.2" name="duvida2" value="7">
-                        <label class="duvida26" for="duvida2e">Não Possuo</label><br><br>
+                        <label class="duvida26" for="duvida2f">Nunca Tem Fim...</label><br>
+                        <input type="radio" id="duvida2g" class="btn7.2" name="duvida2" value="7">
+                        <label class="duvida26" for="duvida2g">Não Possuo</label><br><br>
 
-                            <!-- Como o gráfico de vot -->
+                        <!-- Como o gráfico de vot -->
                         <section class="comoConheceu">
                             <h3>Como conheceu a banda O Rappa?</h3>
                             <input type="radio" id="duvida3a" class="btn1.3" name="duvida3" value="2">
@@ -102,8 +112,17 @@
                         </section>
                 </div>
                 <div class="imagemFormulario">
-                    <div id="show"></div>
+                    <div id="show"><img src="./assets/img/logoORAPPA.jpg"></div>
                 </div>
+            </div>
+            <div class="right-content">
+                <h1 class=titulo-album id="tituloAlbum">Bem Vindo(a) Ao Formulário!</h1>
+                <p class="informacoes-album">
+                    <u id="dtLancamento">Obrigado por se cadastrar!</u><br>
+                    <b id="qtdMusicas"></b><br>
+                    <span id="faixas">
+                        Responda as perguntas para melhor integração de todos os fâs e usuários do site!</span>
+                </p>
             </div>
         </section>
     </main>
@@ -123,28 +142,149 @@
         });
     });
 
-    // 
+    // TROCAR INFORMAÇÕES DOS ALBUNS
+    function mudarAlbum() {
+        if (duvida2a.checked) {
+            show.innerHTML = `<img src="./assets/albuns/1ORappa.jpg">`
+            tituloAlbum.innerHTML = "O Rappa"
+            dtLancamento.innerHTML = "1 de janeiro de 1994"
+            qtdMusicas.innerHTML = "16 músicas - 1h2min<br>"
+            faixas.innerHTML = `<span> - O Homem Bomba</span>
+                                <span> - Todo Camburão Tem Um Pouco de Navio Negreiro</span>
+                                <span> - Don't Cry</span>
+                                <span> - Brixton, Bronx Ou Baixada</span>
+                                <span> - Querer</span>
+                                <span> - Rainha do Fliper</span>
+                                <span> - Na Frente do Reto</span>
+                                <span> - Candidato Caô Caô</span>
+                                <span> - H.C. (Humildade Caminho)</span>
+                                <span> - Psalm 23</span>
+                                <span> - Fogo Cruzado</span>
+            `
+        } else if (duvida2b.checked) {
+            show.innerHTML = `<img src="./assets/albuns/2RappaMundi.jpg">`
+            tituloAlbum.innerHTML = "Rappa Mundi"
+            dtLancamento.innerHTML = "1 de janeiro de 1996"
+            qtdMusicas.innerHTML = "13 músicas - 52min<br>"
+            faixas.innerHTML = `<span> - O Que Sobrou do Céu</span>
+                                <span> - A Feira</span>
+                                <span> - Eu Quero Ver Gol</span>
+                                <span> - Hey Joe</span>
+                                <span> - Pescador de Ilusões</span>
+                                <span> - Lei da Sobrevivência</span>
+                                <span> - Miséria S.A.</span>
+                                <span> - A Todas As Comunidades do Engenho Novo</span>
+                                <span> - Virando a Mesa</span>
+                                <span> - Me Deixa</span>
+                                <span> - Ninguém Regula A América</span>
+                                <span> - Ilê Ayê</span>
+            `
+        } else if (duvida2c.checked) {
+            show.innerHTML = `<img src="./assets/albuns/3LadoBLadoA.jpg">`
+            tituloAlbum.innerHTML = "Lado B Lado A"
+            dtLancamento.innerHTML = "1 de janeiro de 1999"
+            qtdMusicas.innerHTML = "12 músicas - 56min<br>"
+            faixas.innerHTML = `<span> - Instinto Coletivo</span>
+                                <span> - O Que Sobrou do Céu</span>
+                                <span> - Me Deixa</span>
+                                <span> - Lado B Lado A</span>
+                                <span> - O Salto</span>
+                                <span> - Homem Amarelo</span>
+                                <span> - Minha Alma (A Paz Que Eu Não Quero)</span>
+                                <span> - O Que Sobrou do Céu (Ao Vivo)</span>
+                                <span> - Cristo e Oxalá</span>
+                                <span> - Tribunal de Rua</span>
+                                <span> - O Salto II</span>
+            `
+        } else if (duvida2d.checked) {
+            show.innerHTML = `<img src="./assets/albuns/4OSilêncioQPrecedeOEsporro.jpg">`
+            tituloAlbum.innerHTML = "<p>O Silencio Q Precede O Esporro<p>"
+            dtLancamento.innerHTML = "13 de novembro de 2003"
+            qtdMusicas.innerHTML = "23 músicas - 1h9min<br>"
+            faixas.innerHTML = `<span> - O Silêncio</span>
+                                <span> - Reza Vela</span>
+                                <span> - Mar de Gente</span>
+                                <span> - Óbvio</span>
+                                <span> - Rodo Cotidiano</span>
+                                <span> - Papo de Surdo e Mudo</span>
+                                <span> - Eu Não Sei Mentir Direito</span>
+                                <span> - Farrapos</span>
+                                <span> - Hóstia</span>
+                                <span> - Um Olho na Surra, Outro no Frango</span>
+                                <span> - Homem Amarelo</span>
+                                <span> - O Novo Já Nasce Velho</span>
+            `
+        } else if (duvida2e.checked) {
+            show.innerHTML = `<img src="./assets/albuns/5SeteVezes.jpg">`
+            tituloAlbum.innerHTML = "Sete Vezes"
+            dtLancamento.innerHTML = "29 de julho de 2008"
+            qtdMusicas.innerHTML = "14 músicas - 1h4min<br>"
+            faixas.innerHTML = `<span> - Monstro Invisível</span>
+                                <span> - Meu Mundo é o Barro</span>
+                                <span> - 7 Vezes</span>
+                                <span> - Farpa Cortante</span>
+                                <span> - Em Busca do Porrão</span>
+                                <span> - Vários Holofotes</span>
+                                <span> - Súplica Cearense</span>
+                                <span> - Resistência</span>
+                                <span> - Fininho da Vida</span>
+                                <span> - Paraíso do Tuiuti</span>
+                                <span> - Maria</span>
+                                <span> - Formiguinha</span>
+            `
+        } else if (duvida2f.checked) {
+            show.innerHTML = `<img src="./assets/albuns/6NuncaTemFim.jpg">`
+            tituloAlbum.innerHTML = "Nunca Tem Fim"
+            dtLancamento.innerHTML = "15 de agosto de 2013"
+            qtdMusicas.innerHTML = "10 músicas - 53min<br>"
+            faixas.innerHTML = `<span> - Auto-Reverse</span>
+                                <span> - Boa Noite Xangô</span>
+                                <span> - Anjos (Pra Quem Tem Fé)</span>
+                                <span> - Doutor, Sim!</span>
+                                <span> - Vida Rasteja</span>
+                                <span> - Um Dia Lindo</span>
+                                <span> - Fronteira (D.U.C.A.)</span>
+                                <span> - Dona Maria</span>
+                                <span> - Na Horda</span>
+                                <span> - O Horizonte é Logo Ali</span>
+                                <span> - O Que Sobrou do Céu</span>
+                                <span> - Vala Comum</span>
+            `
+        } else if (duvida2g.checked) {
+            show.innerHTML = `<img src="./assets/albuns/naoTenhoAlbum.jpg">`
+            tituloAlbum.innerHTML = "VOCÊ SABIA?"
+            dtLancamento.innerHTML = "Introdução a Curiosidade"
+            qtdMusicas.innerHTML = ""
+            faixas.innerHTML = `<span>Desenvolvimento do texto sobre a curiosidade</span>
+            `
+        }
+    }
+
 
     function enviarInformacoes() {
-        const sexoUsuario = document.querySelector('input[name="duvida1"]:checked').value;
+        if (!document.querySelector('input[name="duvida1"]:checked') || !document.querySelector('input[name="duvida2"]:checked') || !document.querySelector('input[name="duvida3"]:checked')) {
+            voltarDash(1)
+        } else {
+            const sexoUsuario = document.querySelector('input[name="duvida1"]:checked').value;
 
-        fetch("/formulario/enviarSexo", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                usuarioServer: sessionStorage.ID_USUARIO,
-                sexoServer: sexoUsuario
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
+            fetch("/formulario/enviarSexo", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    usuarioServer: sessionStorage.ID_USUARIO,
+                    sexoServer: sexoUsuario
+                }),
             })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+                })
+                .catch(function (resposta) {
+                    console.log(`#ERRO: ${resposta}`);
+                });
             enviarInfAlbum()
+        }
     }
 
 
@@ -164,10 +304,42 @@
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
+                voltarDash(2)
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
 
     }
+
+    function voltarDash(numResposta) {
+        // Esconde todos os modais
+        const modais = document.querySelectorAll('.modal');
+        modais.forEach(modal => modal.style.display = 'none');
+
+        // Exibe o modal correspondente
+        const modalSelecionado = document.querySelector(`.modal${numResposta}`);
+        if (modalSelecionado) {
+            modalSelecionado.style.display = 'block';
+        }
+
+        if (numResposta == 1) {
+            setTimeout(function () {
+                sumirModal()
+            }, 2500)
+        } else (
+            setTimeout(function () {
+                modal_resposta.innerHTML = "AGUARDE... VOLTANDO PARA DASHBOARD..."
+                setTimeout(function () {
+                    window.location = "./dashboard.html";
+                }, 3500);
+            }, 2500)
+        )
+    }
+
+    function sumirModal() {
+        const modais = document.querySelectorAll('.modal');
+        modais.forEach(modal => modal.style.display = 'none');
+    }
+
 </script>

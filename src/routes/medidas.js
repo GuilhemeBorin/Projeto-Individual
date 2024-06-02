@@ -7,12 +7,8 @@ router.get("/ranking", function (req, res) {
     medidaController.ranking(req, res);
 });
 
-router.get("/ultimas/:idAquario", function (req, res) {
-    medidaController.buscarUltimasMedidas(req, res);
+router.get("/posicaoID/:idUsuario", function (req, res) {
+    medidaController.posicaoID(req, res);
 });
-
-router.get("/tempo-real/:idAquario", function (req, res) {
-    medidaController.buscarMedidasEmTempoReal(req, res);
-})
 
 module.exports = router;

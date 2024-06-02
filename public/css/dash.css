@@ -128,8 +128,17 @@ main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 150px);
-    column-gap: 10px;
     background-color: whitesmoke;
+}
+
+.box1 {
+    width: 31.2rem;
+    height: 18.7rem;
+}
+
+.box2 {
+    width: 17.1rem;
+    height: 18.78rem;
 }
 
 /* -------KPI´s------- */
@@ -147,7 +156,6 @@ main {
 }
 
 .best-item {
-    gap: 20px;
     width: 100%;
     height: 100%;
 }
@@ -162,17 +170,26 @@ main {
     justify-content: space-between;
     display: flex;
     align-items: center;
-    justify-content: center;
     font-weight: 700;
     padding: 20px;
     width: 300px;
     background-color: #1B1A1A;
+}
+
+.box-one b {
+    font-size: 19px;
+    color: #A7877A;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+.box-one span {
+    color: #ffffff86;
 }
 
 .box-two {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     font-weight: 700;
     padding: 20px;
@@ -180,15 +197,31 @@ main {
     background-color: #1B1A1A;
 }
 
+.box-two b {
+    color: #A7877A;
+    font-size: 20px;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+.box-two span {
+    color: #ffffff86;
+}
+
 .box-three {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     font-weight: 700;
     padding: 20px;
     width: 300px;
     background-color: #1B1A1A;
+}
+
+.box-three b {
+    color: #A7877A;
+    margin-top: 15px;
+    font-size: 20px;
 }
 
 .box-one p {
@@ -234,8 +267,8 @@ main {
 }
 
 .chart-container2 {
-    width: 200px;
-    height: 400px;
+    width: 273px;
+    height: 300px;
     /* display: flex; */
 }
 
@@ -264,7 +297,7 @@ main {
 
 .cabecalho-item {
     flex: 1;
-    /* padding: 10px; */
+    padding: 5px;
     border-right: 1px solid #fa0000;
     text-align: center;
 }

@@ -55,6 +55,11 @@ li {
     color: #e3b062;
 }
 
+.navbar a:hover {
+    color: #be9a8c;
+    transition: all 0.5s;
+}
+
 .espacamento {
     height: 70px;
 }
@@ -98,7 +103,7 @@ li {
     align-items: center;
     position: relative;
     left: 9rem;
-    top: 150px;
+    top: 270px;
     border-radius: 0.5rem;
 }
 
@@ -171,9 +176,9 @@ h2 {
     border-radius: 0.5rem;
 }
 
-#confirmarSenha {
+/* #confirmarSenha {
     
-}
+} */
 
 /* 
 1. Quando a input está no modo FOCUS

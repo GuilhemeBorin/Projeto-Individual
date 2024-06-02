@@ -1,6 +1,10 @@
 @import url('https://fonts.cdnfonts.com/css/draconian-typewriter');
 /* font-family: 'Draconian Typewriter', sans-serif; */
 
+body {
+    font-family: 'Draconian Typewriter', sans-serif;
+}
+
 *,
 /* *::before, */
 *::after {
@@ -78,7 +82,6 @@ main {
     margin-left: 5px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    font-family: 'Draconian Typewriter', sans-serif;
     font-size: 13px;
 }
 
@@ -119,38 +122,129 @@ main {
 }
 
 .left-content h1 {
-    font-family: 'Draconian Typewriter', sans-serif;
     font-size: 22px;
 }
 
 .left-content h3 {
     color: #FFF;
-    font-family: 'Draconian Typewriter', sans-serif;
     font-size: 15px;
     margin-bottom: 5px;
 }
 
 .left-content label {
     color: #A7877A;
-    font-family: 'Draconian Typewriter', sans-serif;
     font-size: 13px;
 }
 
+
+
+.right-content {
+    background-color: #A7877A;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    padding: 10%;
+    gap: 19px;
+}
+
+.right-content h1 {
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+}
+
+.right-content p {
+    text-align: left;
+}
+
+.right-content u {
+    color: #fefefebb;
+    font-size: 12px;
+}
+
+.right-content b {
+    color: #fefefebb;
+    font-size: 10px;
+}
+
+.informacoes-album span {
+    font-size: 13px;
+    display: flex;
+    margin-bottom: 8px;
+    flex-direction: column;
+}
+
 .imagemFormulario {
-    background-color: rgb(94, 255, 0);
     width: 50%;
     height: 400px;
     position: relative;
-    left: 45px;
-    top: 15px;
+    left: 60px;
+    top: 35px;
 }
 
+.imagemFormulario img {
+    width: 100%;
+}
+
+#tituloAlbum p {
+    font-size: 20px;
+}
+
+
 .botao button {
-    font-family: 'Draconian Typewriter', sans-serif;
     margin-top: 10px;
     padding: 10px;
     width: 120px;
     color: #A7877A;
     background-color: #000;
     border: solid;
+    font-family: 'Draconian Typewriter', sans-serif;
+}
+
+.botao {
+    margin-left: 8rem;
+}
+
+.botao button:hover {
+    color: #be9a8c;
+    background-color: #ffffff1a;
+    transition: all 0.7;
+    cursor: pointer;
+}
+
+.contentmodal{
+    background-color: #be9a8c;
+    color: #ffffff;
+    margin: 15% auto;
+    padding: 20px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    margin-top: 20rem;
+}
+
+.modal1{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color:#676767a9;
+}
+
+.modal2{
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color:#676767a9;
 }

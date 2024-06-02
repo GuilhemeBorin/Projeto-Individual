@@ -51,15 +51,6 @@
                         <span class="nav-text">Sair</span>
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <b></b>
-                    <b></b>
-                    <a href="#">
-                        <i class="fa fa-sliders nav-icon"></i>
-                        <span class="nav-text">Settings</span>
-                    </a>
-                </li>
             </ul>
         </nav>
 
@@ -69,63 +60,61 @@
                     <div class="personal-bests">
                         <div class="personal-bests-container">
                             <div class="best-item box-one">
-                                <p>Longest Distance Cycling: </p>
-                                <img
-                                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/a3b3cb3a-5127-498b-91cc-a1d39499164a" />
+                                <p>Álbum Mais Votado: </p>
+                                <b id="div_votado"></b>
+                                <span id="b_votos"></span>
                             </div>
                             <div class="best-item box-two">
-                                <p>Longest Roller-Skating: </p>
-                                <img
-                                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e0ee8ffb-faa8-462a-b44d-0a18c1d9604c" />
+                                <p>Sua Posição: </p>
+                                <b id="b_posicao"></b>
+                                <span id="span_pontos"></span>
                             </div>
                             <div class="best-item box-three">
-                                <p>Longest Roller-Skating: </p>
-                                <img
-                                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e0ee8ffb-faa8-462a-b44d-0a18c1d9604c" />
+                                <p>Ultima Pontuação: </p>
+                                <b id="b_pontuacao""></b>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="activities">
-                    <h1>Gráficos</h1>
-                    <div class="activity-container">
-                        <div class="box1">
-                            <div class="chart-container">
-                                <canvas id="myChart2"></canvas>
+                <div class=" activities">
+                                    <h1>Gráficos</h1>
+                                    <div class="activity-container">
+                                        <div class="box1">
+                                            <div class="chart-container">
+                                                <canvas id="myChart2" witdh="150" height="175"></canvas>
+                                            </div>
+                                        </div>
+
+                                        <div class="activity-container">
+                                            <div class="box2">
+                                                <div class="chart-container2">
+                                                    <canvas id="myChart" width: 250px; height: 250px></canvas>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                             </div>
                         </div>
 
-                        <div class="image-container img-four">
-                            <div class="box2">
-                                <div class="chart-container2">
-                                    <canvas id="myChart"></canvas>
+                        <div class="right-content">
+                            <div class="tabelaRanking"><!-- Define uma tabela -->
+                                <div id="tabelaRanking" class="tabela">
+
+                                    <div class="cabecalho">
+                                        <div class="cabecalho-item">Posição</div>
+                                        <div class="cabecalho-item">Usuário</div>
+                                        <div class="cabecalho-item">Pontuação</div>
+                                    </div>
+                                    <!--Para barra de rolagem-->
+                                    <div class="corpo-scroll">
+                                        <div id="corpoTabela" class="corpo"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-
-            <div class="right-content">
-                <div class="tabelaRanking"><!-- Define uma tabela -->
-                    <div id="tabelaRanking" class="tabela">
-
-                        <div class="cabecalho">
-                            <div class="cabecalho-item">Posição</div>
-                            <div class="cabecalho-item">Usuário</div>
-                            <div class="cabecalho-item">Tutorial Finalizado</div>
-
-                        </div>
-                        <!--Para barra de rolagem-->
-                        <div class="corpo-scroll">
-                            <div id="corpoTabela" class="corpo"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
         </section>
     </main>
 </body>
@@ -133,6 +122,64 @@
 <script>
     let graficoAlbuns;
     let graficoSexo;
+    let ultimaTentativa;
+    let ranking = [];
+
+
+    function buscarUsuario() {
+
+        const idUsuario = sessionStorage.ID_USUARIO;
+
+        if (!idUsuario) {
+            console.error('ID de usuário não definido');
+            return;
+        }
+
+        fetch(`/medidas/posicaoID/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error("Houve um erro ao tentar trazer o resultado");
+                }
+            })
+            .then(function (data) {
+                if (data.length === 0) {
+                    console.warn("Nenhum resultado encontrado");
+                    return;
+                }
+
+                // Atualizar o gráfico com os dados recebidos
+                atualizarUsuario(data);
+            })
+            .catch(function (erro) {
+                console.error(`#ERRO: ${erro}`);
+            });
+    }
+
+    function atualizarUsuario(tentativaQuiz) {
+
+        const ultimoEnvio = tentativaQuiz[tentativaQuiz.length - 1];
+
+        // Verificar se qtdAcertos está presente no último envio
+        if (!ultimoEnvio.qtdAcertos) {
+            console.error('qtdAcertos não encontrada no último envio');
+            return;
+        }
+
+        // Exibe a faixa favorita no HTML
+        const ultimaTentativa = ultimoEnvio.qtdAcertos;
+        document.getElementById('b_pontuacao').innerHTML = `${ultimaTentativa} Pontos`;
+    }
+
+    buscarUsuario();
+    setInterval(buscarUsuario, 5000);
+
 
     function buscarAlbuns() {
         fetch("/formulario/receberAlbuns", {
@@ -200,9 +247,11 @@
                 animation: false,
                 scales: {
                     x: {
+                        display: false,
                         beginAtZero: true,
                     },
                     y: {
+                        display: false,
                         beginAtZero: true,
                     }
                 },
@@ -212,9 +261,8 @@
             }
         });
 
-        // EXIBE A FAIXA E OS VOTOS
-        // TAG.innerHTML = nomeVotado;
-        // TAG.innerHTML = `${qtdVotados} Votos`;
+        div_votado.innerHTML = nomeVotado;
+        b_votos.innerHTML = `${qtdVotos} Votos`;
     }
 
     buscarAlbuns();
@@ -274,7 +322,8 @@
                 animation: false,
                 scales: {
                     y: {
-                        beginAtZero: true
+                        display: false,
+                        beginAtZero: true,
                     }
                 }
             }
@@ -285,26 +334,36 @@
     setInterval(buscarSexo, 5000)
 
     /* Função de ranking*/
-    const ranking = [];
-    function listar() {
+    function listarRanking() {
         fetch("/medidas/ranking", {
             method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
         })
             .then(function (resposta) {
-                if (!resposta.ok) {
-                    throw new Error('Erro ao recuperar o ranking');
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error("Houve um erro ao tentar recuperar o ranking");
                 }
-                return resposta.json();
             })
-            .then((ranking) => {
-                console.log('Dados do ranking recebidos com sucesso:', ranking);
-                preencherRanking(ranking);
+            .then(function (ranking) {
+                if (ranking.length === 0) {
+                    console.warn("Nenhum resultado encontrado");
+                    return;
+                }
+
+                atualizarRanking(ranking);
             })
             .catch(function (erro) {
-                console.error(`#ERRO: ${erro.message}`);
+                console.error(`#ERRO: ${erro}`);
             });
     }
-    function preencherRanking(ranking) {
+    function atualizarRanking(ranking) {
+
+        const nomeUsuario = sessionStorage.NOME_USUARIO
+        let posicaoUsuario = 0
         //reordena do maior para o menor (sort() = ornagina os elementos do arraw conforme a função dada)
         ranking.sort((a, b) => b.pontuacao - a.pontuacao);
 
@@ -324,5 +383,20 @@
                 corpoTabela.innerHTML += valorLinha.outerHTML;
             }
         });
+
+        for (i = 0; i < ranking.length; i++) {
+            if (ranking[i].usuario == nomeUsuario) {
+                posicaoUsuario = i
+                break;
+            }
+        }
+
+        if(ranking[posicaoUsuario].usuario == nomeUsuario) {
+            b_posicao.innerHTML = `${posicaoUsuario + 1}º Lugar`;
+            span_pontos.innerHTML = `${ranking[posicaoUsuario].acertos} Pontos`;
+        }
     }
+
+    listarRanking();
+    setInterval(listarRanking, 5000)
 </script>

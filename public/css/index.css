@@ -89,6 +89,11 @@ li {
   color: #e3b062;
 }
 
+.navbar a:hover {
+  color: #be9a8c;
+  transition: all 0.5s;
+}
+
 .header h1 {
   margin: 0;
 }
