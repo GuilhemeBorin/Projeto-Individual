@@ -20,4 +20,8 @@ router.get("/receberForm", function(req,res) {
     formularioController.receberForm(req,res);
 });
 
+router.get("/receberAlbuns", function(req,res) {
+    formularioController.receberAlbuns(req,res);
+});
+
 module.exports = router;

@@ -11,7 +11,7 @@
     <title>O Rappa | Dashboard</title>
 </head>
 
-<body onload="buscarSexo()">
+<body onload="buscarSexo(), listar()">
     <main>
         <nav class="main-menu">
             <h1>Fitness App</h1>
@@ -22,36 +22,35 @@
                 <li class="nav-item active">
                     <b></b>
                     <b></b>
-                    <a href="#">
+                    <a href="./dashboard.html">
                         <i class="fa fa-house nav-icon"></i>
-                        <span class="nav-text">Home</span>
+                        <span class="nav-text">Dashboard</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <b></b>
                     <b></b>
-                    <a href="#">
+                    <a href="./quiz.html">
                         <i class="fa fa-user nav-icon"></i>
-                        <span class="nav-text">Profile</span>
+                        <span class="nav-text">Quiz</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
                     <b></b>
                     <b></b>
-                    <a href="#">
+                    <a href="./formulario.html">
                         <i class="fa fa-calendar-check nav-icon"></i>
-                        <span class="nav-text">Schedule</span>
+                        <span class="nav-text">Formulário</span>
                     </a>
                 </li>
-
                 <li class="nav-item">
                     <b></b>
                     <b></b>
-                    <a href="#">
-                        <i class="fa fa-person-running nav-icon"></i>
-                        <span class="nav-text">Activities</span>
+                    <a href="./index.html">
+                        <i class="fa fa-sliders nav-icon"></i>
+                        <span class="nav-text">Sair</span>
                     </a>
                 </li>
 
@@ -113,39 +112,119 @@
             </div>
 
             <div class="right-content">
-                <div class="user-info">
-                    <div class="icon-container">
-                        <i class="fa fa-bell nav-icon"></i>
-                        <i class="fa fa-message nav-icon"></i>
+                <div class="tabelaRanking"><!-- Define uma tabela -->
+                    <div id="tabelaRanking" class="tabela">
+              
+                      <div class="cabecalho">
+                        <div class="cabecalho-item">Posição</div>
+                        <div class="cabecalho-item">Usuário</div>
+                        <div class="cabecalho-item">Tutorial Finalizado</div>
+              
+                      </div>
+                      <!--Para barra de rolagem-->
+                      <div class="corpo-scroll">
+                        <div id="corpoTabela" class="corpo"></div>
+                      </div>
                     </div>
-                    <h4>Ranking</h4>
-                    <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/40b7cce2-c289-4954-9be0-938479832a9c"
-                        alt="user" />
-                </div>
-
-                <div class="active-calories">
-                    <h1 style="align-self: flex-start">Active Calories</h1>
-                    <div class="active-calories-container">
-                        <div class="box" style="--i: 85%">
-                            <div class="circle">
-                                <h2>85<small>%</small></h2>
-                            </div>
-                        </div>
-                        <div class="calories-content">
-                            <p><span>Today:</span> 400</p>
-                            <p><span>This Week:</span> 3500</p>
-                            <p><span>This Month:</span> 14000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                  </div>
+                  </div>
             </div>
         </section>
     </main>
 </body>
 
-
 <script>
+    let graficoAlbuns;
+    let graficoSexo;
+
+    function buscarAlbuns() {
+        fetch("/formulario/receberAlbuns", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw new Error("Houve um erro ao tentar trazer o resultado");
+                }
+            })
+            .then(function (data) {
+                if (data.length === 0) {
+                    console.warn("Nenhum resultado encontrado");
+                    return;
+                }
+
+                atualizarGraficoAlbuns(data);
+            })
+            .catch(function (erro) {
+                console.error(`#ERRO: ${erro}`);
+            });
+    }
+
+    function atualizarGraficoAlbuns(dados) {
+        console.log("Dados recebidos para o gráfico dos albuns:", dados);
+
+        const ctx = document.getElementById('myChart2').getContext('2d');
+
+        if (graficoAlbuns) {
+            graficoAlbuns.destroy();
+        }
+        // Extrair os votos dos dados recebidos e converter para números inteiros
+        const votosAlbuns = dados.map(item => item.qtdVotos); // Extraímos apenas os votos
+        const nomesAlbuns = ['O Rappa', 'Rappa Mundi', 'Lado B Lado A', 'O Silêncio Q Precede o Esporro', '7 Vezes', 'Nunca Tem Fim...', 'Nao Possui'];
+        let qtdVotos = 0;
+        let nomeVotado = nomesAlbuns[0];
+
+        // CALCULA QUAL FOI A FAIXA MAIS VOTADA
+        for (let i = 0; i < votosAlbuns.length; i++) {
+            if (votosAlbuns[i] > qtdVotos) {
+                qtdVotos = votosAlbuns[i];
+                nomeVotado = nomesAlbuns[i]
+            }
+        }
+
+
+
+        graficoAlbuns = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: nomesAlbuns,
+                datasets: [{
+                    label: 'Votos dos usuários',
+                    data: votosAlbuns,
+                    borderColor: 'transparent',
+                    backgroundColor: '#000000',
+                }]
+            },
+            options: {
+                animation: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                    }
+                },
+                animation: {
+                    duration: 0
+                },
+            }
+        });
+
+        // EXIBE A FAIXA E OS VOTOS
+        // TAG.innerHTML = nomeVotado;
+        // TAG.innerHTML = `${qtdVotados} Votos`;
+    }
+
+    buscarAlbuns();
+    setInterval(buscarAlbuns, 5000);
+
+
+
 
     function buscarSexo() {
         fetch("/formulario/receberForm", {
@@ -156,16 +235,17 @@
         })
             .then(function (resposta) {
                 if (resposta.ok) {
-                    resposta.json().then(function (data) {
-                        // Extrai as quantidades do objeto de resultados
-                        let quantidades = data.map(item => item.quantidade);
-                        // Atualiza os dados do gráfico
-                        graficoSexo.data.datasets[0].data = quantidades;
-                        graficoSexo.update(); // Atualiza o gráfico com os novos dados
-                    });
+                    return resposta.json();
                 } else {
-                    throw "Houve um erro ao tentar trazer o resultado";
+                    throw new Error("Houve um erro ao tentar trazer o resultado");
                 }
+            })
+            .then(function (data) {
+                if (data.length === 0) {
+                    console.warn("Nenhum resultado encontrado");
+                    return;
+                }
+                atualizarGraficoSexo(data)
             })
             .catch(function (erro) {
                 console.log(`#ERRO: ${erro}`);
@@ -173,216 +253,80 @@
     }
 
 
-    const ctx = document.getElementById('myChart');
 
-    let graficoSexo = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Feminino', 'Masculino'],
-            datasets: [{
-                label: 'Gênero',
-                backgroundColor: ['#a82ba8', '#368a8a'],
-                data: [],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+    function atualizarGraficoSexo(dados) {
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        if (graficoSexo) {
+            graficoSexo.destroy();
+        }
+
+        // Extrai as quantidades do objeto de resultados
+        let quantidades = dados.map(item => item.quantidade);
+
+        graficoSexo = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Feminino', 'Masculino'],
+                datasets: [{
+                    label: 'Gênero',
+                    backgroundColor: ['#ffffff', '#000000'],
+                    data: quantidades,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                animation: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
+        });
+    }
+
+    buscarSexo()
+    setInterval(buscarSexo, 5000)
+
+    /* Função de ranking*/
+    const ranking = [];
+function listar() {
+  fetch("/medidas/ranking", {
+    method: "GET",
+  })
+    .then(function (resposta) {
+      if (!resposta.ok) {
+        throw new Error('Erro ao recuperar o ranking');
+      }
+      return resposta.json();
+    })
+    .then((ranking) => {
+      console.log('Dados do ranking recebidos com sucesso:', ranking);
+      preencherRanking(ranking);
+    })
+    .catch(function (erro) {
+      console.error(`#ERRO: ${erro.message}`);
     });
+}
+function preencherRanking(ranking) {
+  //reordena do maior para o menor (sort() = ornagina os elementos do arraw conforme a função dada)
+  ranking.sort((a, b) => b.pontuacao - a.pontuacao);
 
+  const corpoTabela = document.getElementById('corpoTabela');
+  corpoTabela.innerHTML = '';
 
-
-
-    // function buscarSexo() {
-    //     fetch("/formulario/receberForm", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         }
-    //     })
-    //         .then(function (resposta) {
-    //             if (resposta.ok) {
-    //                 resposta.json().then(function (data) {
-    //                     console.log(data)
-    //                     graficoSexo.data.datasets[0].data = [data[0]];
-    //                     graficoSexo.update(); // Atualiza o gráfico com os novos dados
-    //                 })
-
-    //             } else {
-    //                 throw "Houve um erro ao tentar trazer o resultado";
-    //             }
-    //         })
-    //         .catch(function (erro) {
-    //             console.log(`#ERRO: ${erro}`);
-    //         });
-    // }
-
-
-    // function buscarSexo() {
-    //     fetch("/formulario/receberForm", {
-    //         method: "GET",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         }
-    //     })
-    //         .then(function (resposta) {
-    //             if (resposta.ok) {
-    //                 return resposta.json();
-    //             } else {
-    //                 throw new Error("Houve um erro ao tentar trazer o resultado");
-    //             }
-    //         })
-    //         .then(function (data) {
-    //             if (data.length === 0) {
-    //                 console.warn("Nenhum resultado encontrado");
-    //                 return;
-    //             }
-
-    //             // Atualizar o gráfico com os dados recebidos
-    //             atualizarGraficoSexo(data);
-    //         })
-    //         .catch(function (erro) {
-    //             console.error(`#ERRO: ${erro}`);
-    //         });
-    // }
-
-    // function atualizarGraficoSexo(dados) {
-    //     const ctx = document.getElementById('myChart').getContext('2d');
-    // }
-
-    // const navItems = document.querySelectorAll(".nav-item");
-
-    // navItems.forEach((navItem, i) => {
-    //     navItem.addEventListener("click", () => {
-    //         navItems.forEach((item, j) => {
-    //             item.className = "nav-item";
-    //         });
-    //         navItem.className = "nav-item active";
-    //     });
-    // });
-
-
-
-    // const labels = [
-    //     'Masculino',
-    //     'Feminino',
-    // ];
-    const labels2 = [
-        'Rappa Mundi',
-        'Lado B Lado A',
-        'O Silêncio Q Precede o Esporro',
-        'Sete Vezes',
-        'Nunca Tem FIm',
-    ];
-
-    //  aqui muda a cor das letra
-    Chart.defaults.color = '#00000';
-
-    // const data = {
-    //     labels: labels,
-    //     datasets: [{
-    //         label: 'Sexo mais presente',
-    //         backgroundColor: ["white", "#fffff"],
-    //         borderColor: '#000',
-    //         textStrokeColor: '#fff',
-    //         data: [15, 20],
-    //     },
-    //     ]
-    // };
-    const data2 = {
-        labels: labels2,
-        datasets: [{
-            label: 'Rappa Mundi',
-            backgroundColor: ["#fffff"],
-            borderColor: '#00000',
-            data: [6, 5, 7, 1, 8],
-        }
-        ]
-    };
-
-    // const config = {
-    //     type: 'pie',
-    //     data: data,
-    //     options: {}
-    // };
-    const config2 = {
-        type: 'bar',
-        data: data2,
-        options: {}
-    };
-
-    // const myChart = new Chart(
-    //     document.getElementById('myChart'),
-    //     config
-    // );
-    const myChart2 = new Chart(
-        document.getElementById('myChart2'),
-        config2
-    );
-
-    function selecionarFilme() {
-        fetch("/dash/selecionarFilme", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-                if (resposta.ok) {
-                    resposta.json().then(json => {
-                        console.log(json)
-                        paragrafo.innerHTML = json.filmeVotado
-                    });
-                } else {
-                    throw "Houve um erro ao tentar selecionar o filme mais escolhido!";
-                }
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-
-            });
-
-        return false;
-    }
-
-    function selecionarlado() {
-        fetch("/dash/selecionarlado", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-
-            }),
-        })
-            .then(function (resposta) {
-                console.log("resposta: ", resposta);
-                if (resposta.ok) {
-                    resposta.json().then(json => {
-                        console.log(json);
-                        console.log(JSON.stringify(json));
-                        lado.innerHTML = json.ladoVotado
-                    });
-                } else {
-                    throw "Houve um erro ao tentar selecionar o lado mais escolhido!";
-                }
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-
-        return false;
-    }
-    // selecionarFilme()
-    // selecionarlado()
-
+  //forEach() é usado para iterar sobre cada entrada no ranking ordenado
+  ranking.forEach((resultado, indice) => {
+    if(indice < 5){
+    const valorLinha = document.createElement('div');
+    valorLinha.classList.add('linha');
+    valorLinha.innerHTML = `
+          <div class="placar">${indice + 1}º</div>
+          <div class="placar">${resultado.usuario}</div>
+          <div class="placar">${resultado.acertos} pontos</div>
+      `;
+    corpoTabela.innerHTML += valorLinha.outerHTML;
+ }});
+}
 </script>

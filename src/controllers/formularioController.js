@@ -28,6 +28,14 @@ function receberForm(req, res) {
     })
 };
 
+function receberAlbuns(req, res) {
+    formularioModel.receberAlbuns().then(function(resultado){
+    res.status(200).json(resultado);
+    }).catch(function(erro){
+    res.status(500).json(erro.sqlMessage);
+    })
+};
+
 function enviarSexo(req,res) {
     var idUsuario = req.body.usuarioServer;
     var parametroSexo = req.body.sexoServer;
@@ -63,6 +71,7 @@ function enviarAlbum(req,res) {
 }
 
 module.exports = {
+    receberAlbuns,
     formPorID,
     receberForm,
     enviarSexo,

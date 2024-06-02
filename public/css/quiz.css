@@ -1,3 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/draconian-typewriter');
+/* font-family: 'Draconian Typewriter', sans-serif; */
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,9 +9,11 @@
 }
 
 body{
+    font-family: 'Draconian Typewriter', sans-serif;
     height: 100vh;
     width: 100vw;
-    background-color: #f5f5f5;
+    background-color: #000;
+    color: #FFF;
     display: flex;
 }
 
@@ -18,18 +24,66 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    text-align: justify;
+    padding: 70px;
 }
 
-#options {
-    display: flex;
-    flex-direction: column;
+.boxQuiz #options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* numero de colunas */
+    grid-column-gap: 10px; /* espaço vazio de 10 pixels entre colunas */
+    grid-row-gap: 1em; /* um espaço vazio de 1rem entre linhas */
+} 
+
+#perguntaNumero {
+    margin-bottom: 10px;
 }
+
+#mensagem {
+    margin-bottom: 30px;   
+}
+
+.boxQuiz button {
+    font-family: 'Draconian Typewriter', sans-serif;
+    margin-top: 10px;
+    padding: 10px;
+    width: 150px;
+    color: white;
+    background-color: #000;
+    border: solid;
+}
+
+.restart {
+    text-decoration: none;
+    color: #FFF;
+    margin-top: 20px;
+}
+
+#restartText {
+    text-decoration: underline;
+}
+
+
 .midiaQuiz{
-    width: 100%;
+    max-width: 100%;
     height: 100%;
-    background-image: url(../assets/banda/Banda.jpg);
+    overflow: hidden;
     background-size: cover;
-    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
+
+.midiaQuiz video {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    
+  }
+
+
+
+
 
 

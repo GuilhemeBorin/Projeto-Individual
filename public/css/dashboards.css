@@ -110,7 +110,6 @@ body {
 }
 
 /* pagina graficos */
-
 .dash-header {
   background-color: #212124;
 }
@@ -126,7 +125,6 @@ body {
 }
 
 .area-parametros-alerta {
-  /* border: 2px solid pink; */
   display: flex;
   flex-direction: column;
   width: 70%;
@@ -407,7 +405,7 @@ canvas {
   padding: 0;
   margin: 0;
 }
-
+w
 .btn-nav h3,
 .btn-logout h3 {
   margin: 0;

@@ -9,6 +9,15 @@ function receberForm() {
     return database.executar(receberSQL);
 }
 
+function receberAlbuns() {
+    var receberSQL = `
+    SELECT qtdVotos FROM album;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + receberSQL)
+    return database.executar(receberSQL);
+}
+
 function enviarSexo(idUsuario, sexo) {
     var enviarSQL = `
     INSERT INTO formulario (fkUsuario, sexoUsuario) VALUES ('${idUsuario}','${sexo}');
@@ -31,6 +40,7 @@ function enviarAlbum(idAlbum) {
 }
 
 module.exports = {
+    receberAlbuns,
     receberForm,
     enviarSexo,
     enviarAlbum

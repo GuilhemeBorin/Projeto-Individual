@@ -5,25 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/quiz.css">
-    <link rel="shortcut icon" href="../public/assets/icon/favIcon.ico">
+    <link rel="shortcut icon" href="./assets/icones/favIcon.ico">
     <script src="./js/sessao.js"></script>
     <title>Quiz | O Rappa</title>
 </head>
 
 <body>
     <div class="boxQuiz" id="quiz">
-        <h1>Bem Vindo!</h1><br>
-        <h2 id="mensagem" style="display: block;">Será que você conhece O Rappa?</h2>
+        <h1 id="mensagemBemVindo">Bem Vindo!</h1><br>
+        <h2 id="perguntaNumero"></h2>
+        <span id="mensagem">Clique no botão abaixo para iniciar o quiz, boa sorte!</span>
         <div id="question"></div>
         <div id="options"></div>
         <button id="iniciar" onclick="iniciarQuiz()">Iniciar Quiz</button>
+
     </div>
-    <div class="midiaQuiz"></div>
+    <div class="midiaQuiz">
+        <video autoplay muted loop>
+            <source src="./assets/O_Rappa_Anjos.mp4" type="video/mp4">
+            <audio id="audioPlayer" src="./assets/O_Rappa_Anjos _.mp3"></audio>
+        </video>
+    </div>
 </body>
 
 </html>
 
 <script>
+    document.getElementById('iniciar').addEventListener('click', function () {
+        var audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.play();
+    }); // puxa o botão pelo id, adiciona um evento ao clicar, seleciona o som pelo id e por fim, toca a música
+
     const quizData = [
         {
             question: "Qual foi o ano de formação da banda O Rappa?",
@@ -87,6 +99,10 @@
 
     function iniciarQuiz() {
         document.getElementById("iniciar").style.display = 'none';
+        document.getElementById("mensagemBemVindo").style.display = 'none';
+        document.getElementById("mensagem").style.display = 'none';
+
+
         const questionElement = document.getElementById("question");
         const optionsElement = document.getElementById("options");
 
@@ -96,6 +112,8 @@
         function showQuestion() {
             const question = quizData[currentQuestion];
             questionElement.innerText = question.question;
+
+            perguntaNumero.innerHTML = `Pergunta ${currentQuestion + 1}`
 
             optionsElement.innerHTML = "";
             question.options.forEach(option => {
@@ -122,16 +140,16 @@
                 enviar();
                 showResult();
             }
+
+
         }
 
         function showResult() {
-
-
             document.getElementById("quiz").innerHTML = `
                 <h1>Quiz Concluído</h1>
                 <p>Você acertou ${score} de um total de ${quizData.length} questões</p>
                 <button class="restart" onclick="reiniciarQuiz()">Recomeçar Quiz</button>
-                <button class="restart" onclick="voltarDash()">voltar para Dashboard</button>
+                <a id="restartText" class="restart" href="./dashboard.html">Voltar para Dashboard</a>
             `;
         }
         showQuestion();
@@ -139,27 +157,27 @@
     function enviar() {
         fetch("/quiz/enviar", {
             method: "POST",
-                headers: {
+            headers: {
                 "Content-Type": "application/json",
             },
-                body: JSON.stringify({
-                    usuarioServer: sessionStorage.ID_USUARIO,
-                    scoreServer: score
-                }),
+            body: JSON.stringify({
+                usuarioServer: sessionStorage.ID_USUARIO,
+                scoreServer: score
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
             })
-                .then(function (resposta) {
-                    console.log("resposta: ", resposta);
-                })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        }
+    }
 
 
     function reiniciarQuiz() {
         document.getElementById("quiz").innerHTML = `
         <h1>Bem Vindo!</h1><br>
-        <h2 id="mensagem" style="display: block;">Será que você conhece O Rappa?</h2>
+        <span id="mensagem">Clique no botão abaixo para iniciar o quiz, boa sorte!</span>
         <div id="question"></div>
         <div id="options"></div>
         <button id="iniciar" onclick="iniciarQuiz()">Iniciar Quiz</button>
@@ -167,6 +185,6 @@
     }
 
     function voltarDash() {
-        window.location = "dash.html"
+        window.location = "./dashboard.html"
     }
 </script>
