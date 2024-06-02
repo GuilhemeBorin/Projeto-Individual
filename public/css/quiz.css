@@ -72,15 +72,13 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .midiaQuiz video {
     position: relative;
     object-fit: cover;
-    width: 100%;
-    
-  }
+    width: 100%; 
+}
 
 
 

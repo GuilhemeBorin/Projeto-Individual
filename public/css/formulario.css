@@ -1,7 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Roboto:wght@300;400;500;700&display=swap");
+@import url('https://fonts.cdnfonts.com/css/draconian-typewriter');
+/* font-family: 'Draconian Typewriter', sans-serif; */
 
 *,
-*::before,
+/* *::before, */
 *::after {
     box-sizing: border-box;
     padding: 0;
@@ -26,12 +27,11 @@ nav ul li a {
 }
 
 body {
-    font-family: "Nunito", sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #000;
+    background-image: url(../assets/imgs/capafaceORappa.jpg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -42,32 +42,23 @@ main {
     grid-template-columns: 13% 87%;
     width: 100%;
     margin: 40px;
-    height: 600px;
-    background: #FFF;
-    box-shadow: 0 0.5px 0 1px #ffffff3b inset,
-        0 1px 0 0 #ffffffa8 inset, 0 4px 16px #0000001f;
+    background: #FEFEFE;
+    box-shadow: 0 0.5px 0 1px #FFFFFF3B inset,
+        0 1px 0 0 #FFFFFFA8 inset, 0 4px 16px #0000001F;
     z-index: 10;
 }
 
+
 .main-menu {
     overflow: hidden;
-    background: rgb(73, 57, 113);
+    background: #1B1A1A;
     padding-top: 10px;
-    font-family: "Roboto", sans-serif;
-}
-
-.main-menu h1 {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 500;
-    text-align: center;
-    margin: 20px 0 30px;
-    color: #fff;
-    font-family: "Nunito", sans-serif;
 }
 
 .logo {
-    display: none;
+    display: block;
+    width: 100px;
+    margin: 20px auto;
 }
 
 .nav-item {
@@ -81,63 +72,21 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #FFF;
     font-size: 1rem;
     padding: 15px 0;
-    margin-left: 10px;
+    margin-left: 5px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    font-family: 'Draconian Typewriter', sans-serif;
+    font-size: 13px;
 }
 
-.nav-item b:nth-child(1) {
-    position: absolute;
-    top: -15px;
-    height: 15px;
-    width: 100%;
-    background: #fff;
-    display: none;
-}
-
-.nav-item b:nth-child(1)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-bottom-right-radius: 20px;
-    background: rgb(73, 57, 113);
-}
-
-.nav-item b:nth-child(2) {
-    position: absolute;
-    bottom: -15px;
-    height: 15px;
-    width: 100%;
-    background: #fff;
-    display: none;
-}
-
-.nav-item b:nth-child(2)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-top-right-radius: 20px;
-    background: rgb(73, 57, 113);
-}
-
-.nav-item.active b:nth-child(1),
-.nav-item.active b:nth-child(2) {
-    display: block;
-}
-
+/* -------MARCADOR DE SEÇÃO NAV------- */
 .nav-item.active a {
     text-decoration: none;
     color: #000;
-    background: rgb(254, 254, 254);
+    background: #FEFEFE;
 }
 
 .nav-icon {
@@ -154,27 +103,54 @@ main {
 }
 
 /* CONTENT */
-
 .content {
     display: grid;
     grid-template-columns: 75% 25%;
 }
 
 /* LEFT CONTENT */
-
 .left-content {
-    background: #388fa4;
+    background: #1B1A1A;
+    color: #FFF;
     margin: 15px;
     padding: 20px;
     border-radius: 15px;
     display: flex;
 }
 
+.left-content h1 {
+    font-family: 'Draconian Typewriter', sans-serif;
+    font-size: 22px;
+}
+
+.left-content h3 {
+    color: #FFF;
+    font-family: 'Draconian Typewriter', sans-serif;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.left-content label {
+    color: #A7877A;
+    font-family: 'Draconian Typewriter', sans-serif;
+    font-size: 13px;
+}
+
 .imagemFormulario {
-    background-color: aqua;
+    background-color: rgb(94, 255, 0);
     width: 50%;
     height: 400px;
     position: relative;
-    left: 120px;
-    top: 10px;
+    left: 45px;
+    top: 15px;
+}
+
+.botao button {
+    font-family: 'Draconian Typewriter', sans-serif;
+    margin-top: 10px;
+    padding: 10px;
+    width: 120px;
+    color: #A7877A;
+    background-color: #000;
+    border: solid;
 }

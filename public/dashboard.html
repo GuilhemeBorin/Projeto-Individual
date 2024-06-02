@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/dash.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="shortcut icon" href="./assets/icones/favIcon.ico" type="image/x-icon">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>O Rappa | Dashboard</title>
@@ -14,8 +15,7 @@
 <body onload="buscarSexo(), listar()">
     <main>
         <nav class="main-menu">
-            <img class="logo"
-                src="./assets/imgs/ORaioRappa.png"/>
+            <img class="logo" src="./assets/imgs/ORaioRappa.png" />
             <ul>
                 <li class="nav-item active">
                     <b></b>
@@ -70,15 +70,18 @@
                         <div class="personal-bests-container">
                             <div class="best-item box-one">
                                 <p>Longest Distance Cycling: </p>
-                                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/a3b3cb3a-5127-498b-91cc-a1d39499164a"/>
+                                <img
+                                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/a3b3cb3a-5127-498b-91cc-a1d39499164a" />
                             </div>
                             <div class="best-item box-two">
                                 <p>Longest Roller-Skating: </p>
-                                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e0ee8ffb-faa8-462a-b44d-0a18c1d9604c"/>
+                                <img
+                                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e0ee8ffb-faa8-462a-b44d-0a18c1d9604c" />
                             </div>
                             <div class="best-item box-three">
                                 <p>Longest Roller-Skating: </p>
-                                <img src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e0ee8ffb-faa8-462a-b44d-0a18c1d9604c"/>
+                                <img
+                                    src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/e0ee8ffb-faa8-462a-b44d-0a18c1d9604c" />
                             </div>
                         </div>
                     </div>
@@ -89,14 +92,14 @@
                     <div class="activity-container">
                         <div class="box1">
                             <div class="chart-container">
-                                <canvas id="myChart"></canvas>
+                                <canvas id="myChart2"></canvas>
                             </div>
                         </div>
 
                         <div class="image-container img-four">
                             <div class="box2">
                                 <div class="chart-container2">
-                                    <canvas id="myChart2"></canvas>
+                                    <canvas id="myChart"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -108,20 +111,20 @@
             <div class="right-content">
                 <div class="tabelaRanking"><!-- Define uma tabela -->
                     <div id="tabelaRanking" class="tabela">
-              
-                      <div class="cabecalho">
-                        <div class="cabecalho-item">Posição</div>
-                        <div class="cabecalho-item">Usuário</div>
-                        <div class="cabecalho-item">Tutorial Finalizado</div>
-              
-                      </div>
-                      <!--Para barra de rolagem-->
-                      <div class="corpo-scroll">
-                        <div id="corpoTabela" class="corpo"></div>
-                      </div>
+
+                        <div class="cabecalho">
+                            <div class="cabecalho-item">Posição</div>
+                            <div class="cabecalho-item">Usuário</div>
+                            <div class="cabecalho-item">Tutorial Finalizado</div>
+
+                        </div>
+                        <!--Para barra de rolagem-->
+                        <div class="corpo-scroll">
+                            <div id="corpoTabela" class="corpo"></div>
+                        </div>
                     </div>
-                  </div>
-                  </div>
+                </div>
+            </div>
             </div>
         </section>
     </main>
@@ -190,7 +193,7 @@
                     label: 'Votos dos usuários',
                     data: votosAlbuns,
                     borderColor: 'transparent',
-                    backgroundColor: '#000000',
+                    backgroundColor: '#1B1A1A',
                 }]
             },
             options: {
@@ -216,8 +219,6 @@
 
     buscarAlbuns();
     setInterval(buscarAlbuns, 5000);
-
-
 
 
     function buscarSexo() {
@@ -264,7 +265,7 @@
                 labels: ['Feminino', 'Masculino'],
                 datasets: [{
                     label: 'Gênero',
-                    backgroundColor: ['#ffffff', '#000000'],
+                    backgroundColor: ['#1B1A1A', '#A7877A'],
                     data: quantidades,
                     borderWidth: 1
                 }]
@@ -285,42 +286,43 @@
 
     /* Função de ranking*/
     const ranking = [];
-function listar() {
-  fetch("/medidas/ranking", {
-    method: "GET",
-  })
-    .then(function (resposta) {
-      if (!resposta.ok) {
-        throw new Error('Erro ao recuperar o ranking');
-      }
-      return resposta.json();
-    })
-    .then((ranking) => {
-      console.log('Dados do ranking recebidos com sucesso:', ranking);
-      preencherRanking(ranking);
-    })
-    .catch(function (erro) {
-      console.error(`#ERRO: ${erro.message}`);
-    });
-}
-function preencherRanking(ranking) {
-  //reordena do maior para o menor (sort() = ornagina os elementos do arraw conforme a função dada)
-  ranking.sort((a, b) => b.pontuacao - a.pontuacao);
+    function listar() {
+        fetch("/medidas/ranking", {
+            method: "GET",
+        })
+            .then(function (resposta) {
+                if (!resposta.ok) {
+                    throw new Error('Erro ao recuperar o ranking');
+                }
+                return resposta.json();
+            })
+            .then((ranking) => {
+                console.log('Dados do ranking recebidos com sucesso:', ranking);
+                preencherRanking(ranking);
+            })
+            .catch(function (erro) {
+                console.error(`#ERRO: ${erro.message}`);
+            });
+    }
+    function preencherRanking(ranking) {
+        //reordena do maior para o menor (sort() = ornagina os elementos do arraw conforme a função dada)
+        ranking.sort((a, b) => b.pontuacao - a.pontuacao);
 
-  const corpoTabela = document.getElementById('corpoTabela');
-  corpoTabela.innerHTML = '';
+        const corpoTabela = document.getElementById('corpoTabela');
+        corpoTabela.innerHTML = '';
 
-  //forEach() é usado para iterar sobre cada entrada no ranking ordenado
-  ranking.forEach((resultado, indice) => {
-    if(indice < 5){
-    const valorLinha = document.createElement('div');
-    valorLinha.classList.add('linha');
-    valorLinha.innerHTML = `
+        //forEach() é usado para iterar sobre cada entrada no ranking ordenado
+        ranking.forEach((resultado, indice) => {
+            if (indice < 5) {
+                const valorLinha = document.createElement('div');
+                valorLinha.classList.add('linha');
+                valorLinha.innerHTML = `
           <div class="placar">${indice + 1}º</div>
           <div class="placar">${resultado.usuario}</div>
           <div class="placar">${resultado.acertos} pontos</div>
       `;
-    corpoTabela.innerHTML += valorLinha.outerHTML;
- }});
-}
+                corpoTabela.innerHTML += valorLinha.outerHTML;
+            }
+        });
+    }
 </script>

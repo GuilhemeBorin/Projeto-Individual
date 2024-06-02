@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Roboto:wght@300;400;500;700&display=swap");
 @import url('https://fonts.cdnfonts.com/css/draconian-typewriter');
 /* font-family: 'Draconian Typewriter', sans-serif; */
 
@@ -37,9 +36,10 @@ body {
     background-image: url(../assets/imgs/capafaceORappa.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 
-/* MENU */
+/* MENU GERAL */
 main {
     display: grid;
     grid-template-columns: 13% 87%;
@@ -48,7 +48,6 @@ main {
     background: #FEFEFE;
     box-shadow: 0 0.5px 0 1px #FFFFFF3B inset,
         0 1px 0 0 #FFFFFFA8 inset, 0 4px 16px #0000001F;
-    border-radius: 15px;
     z-index: 10;
 }
 
@@ -90,7 +89,7 @@ main {
 .nav-item.active a {
     text-decoration: none;
     color: #000;
-    background: rgb(254, 254, 254);
+    background: #FEFEFE;
 }
 
 .nav-icon {
@@ -114,7 +113,7 @@ main {
 
 /* -------Quadro Esquerda------- */
 .left-content {
-    margin: 15px;
+    margin: 0 15px 15px 15px;
     padding: 8px;
 }
 
@@ -213,9 +212,12 @@ main {
 
 /* -------RANKING------- */
 .divRanking {
-    background: #F6F7FB;
+    background: whitesmoke;
     margin: 15px 15px 15px 0;
     padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* -------TITULO "RANKING"------- */
@@ -224,26 +226,16 @@ main {
     justify-content: center;
 }
 
-/* -------COLUNAS RANKING-------  */
-/* .titulosColunasRanking {
-    display: flex;
-    align-items: center;
-    background-color: rgb(214, 227, 248);
-    padding: 0 10px;
-    margin: 15px 10px 0;
-    box-shadow: rgba(0, 0, 0, 0.161) 0px 1px 3px;
-} */
-
 /* -------MARCADOR DE SEÇÃO NAV------- */
 .chart-container {
-    width: 20vw;
-    height: 40vh;
+    width: 500px;
+    height: 700px;
     /* display: flex; */
 }
 
 .chart-container2 {
-    width: 35 vw;
-    height: 40vh;
+    width: 200px;
+    height: 400px;
     /* display: flex; */
 }
 
@@ -261,12 +253,13 @@ main {
     background-color: #000;
     display: flex;
     font-weight: bold;
-    margin: 20px;
+    margin: 20px 10px 10px 0px;
     align-items: center;
 }
 
 .corpo {
-    background-color: #A7877A;
+    background-color: #000;
+    margin-right: 10px;
 }
 
 .cabecalho-item {
