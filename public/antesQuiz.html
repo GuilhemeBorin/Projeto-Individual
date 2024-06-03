@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt=br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>O Rappa | Página Inicial</title>
+
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="./assets/icon/favIcon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Convergence&family=Lato:wght@300;400;700;900&family=Mukta:wght@300;400;600;700;800&family=Noto+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+</html>
+
+<body>
+    <div class="header">
+        <nav class="navbar">
+            <img class="logoBandaNav" href="./index.html" src="./assets/imgs/ORaioRappa.png" style="width: 95px;">
+            <a href="./index.html">INICIAL</a>
+            <a href="#chamaSobre">SOBRE</a>
+            <a href="#Discografia">DISCOGRAFIA</a>
+            <a href="./antesQuiz.html">QUIZ</a>
+            <a href="./login.html">LOGIN</a>
+            <a href="./cadastro.html">CADASTRO</a>
+        </nav>
+    </div>
+
+    <div id="chamaSobre" class="conjunto2">
+        <div class="sobreTexto"><br><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p>Bem-vindo! Você já ouviu falar da banda "O Rappa"? <br><br>Se sim, que tal testar seus conhecimentos sobre essa icônica banda brasileira com o nosso quiz? Vamos ver o quanto você sabe sobre as músicas, álbuns e a história dessa banda que marcou gerações com suas letras impactantes e sonoridade única. Prepare-se para um desafio divertido e cheio de nostalgia! <br>Para realizar o quiz, cadastre-se</p>
+            <div class="divSaibaMais">
+                <img src="./assets/imgs/DedoApontando.png" alt="">
+                <a href="./cadastro.html"><i>Cadastre-se</i></a>
+            </div>
+        </div>
+
+        <!-- Slideshow container -->
+        <div class="sobreFoto">
+            <div class="sobreFoto-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="Integrantes fade">
+                    <img src="./assets/img/bemVindoQuiz.png" style="width:100%">
+                    <div class="NameSobre"></div>
+                </div>
+
+                <div class="Integrantes fade">
+                    <img src="./assets/img/pergunta1.png" style="width:100%">
+                    <div class="NameSobre"></div>
+                </div>
+
+                <div class="Integrantes fade">
+                    <img src="./assets/img/pergunta2.png" style="width:100%">
+                    <div class="NameSobre"></div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+   
+
+</body>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("Integrantes");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        slides[slideIndex - 1].style.display = "block";
+        setTimeout(showSlides, 3000); // Change image every 2 seconds
+    }
+</script>

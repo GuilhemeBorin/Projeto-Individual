@@ -124,6 +124,7 @@ li {
   flex-direction: column;
   width: 50%;
   height: 52vh;
+  margin-bottom: 50px;
 }
 
 .sobreTexto img {
@@ -257,6 +258,7 @@ li {
   justify-content: center;
   height: 100vh;
   flex-direction: column;
+  margin-top: 90px;
 }
 
 .wrapperTitle{
@@ -376,7 +378,7 @@ li {
 }
 
 .sobreMim-texto{
-  width: 100%;
+  width: 60%;
   display: flex;
   justify-content: center;
   position: relative;
@@ -396,13 +398,15 @@ li {
 }
 
 .sobreMim-foto {
-  filter: invert();
-  width: 50%;
-  height: 400px;
-  background-image: url(../assets/imgs/ORAPPA.png);
-  background-repeat: no-repeat;
-  position: relative;
+  width: 450px;
+  height: 450px;
+  background-image: url(../assets/img/borinMini.jpg);
+  background-size: cover;
+  border-radius: 60%;
+  margin-bottom: 100px;
+  margin-left: -70px;
 }
+
 
 
 /* ------------------FOOTER------------------ */

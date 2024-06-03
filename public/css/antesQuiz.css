@@ -1,0 +1,276 @@
+@import url('https://fonts.cdnfonts.com/css/draconian-typewriter');
+/* font-family: 'Draconian Typewriter', sans-serif; */
+                                                
+body {
+  background-color: #000;
+  overflow-x:hidden;
+  font-family: 'Draconian Typewriter', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.logoBanda {
+  display: flex;
+  position: relative;
+  right: 360px;
+  width: 700px;
+  object-fit: cover;
+}
+
+.espacamento {
+  height: 300px;
+}
+
+.divFotoBanda {
+  background-image: linear-gradient(rgba(0,0,0, 0.05), rgba(0,0,0)), url(../assets/banda/BandaNoMuro.JPG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Convergence", sans-serif; 
+  font-size: 1.2rem;
+  height: 716px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px;
+}
+
+.container {
+  display: flex;
+  width: 75%;
+  margin: auto;
+}
+
+.header {
+  background-color: #000000;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
+}
+
+.header a {
+  font-family: 'Draconian Typewriter', sans-serif;
+  font-size: medium;
+  text-decoration: none;
+  padding: 35px;
+  color: #ffffff;
+}
+
+li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.header img {
+  display: flex;
+  position: relative;
+  width: 80px;
+}
+
+.agora {
+  font-weight: 800;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  color: #e3b062;
+}
+
+.navbar a:hover {
+  color: #be9a8c;
+  transition: all 0.5s;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+/* ------------------SOBRE------------------ */
+
+.conjunto2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+}
+  
+.sobreTexto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 55%;
+  text-align: justify;
+  font-size: larger;
+  flex-direction: column;
+}
+
+.sobreTexto p {
+  display: flex;
+  align-items:self-start;
+  justify-content: center;
+  color: whitesmoke;
+  flex-direction: column;
+  width: 50%;
+  height: 52vh;
+}
+
+.sobreTexto img {
+  width: 80px;
+  filter: invert();
+}
+
+.sobreTexto a{
+  text-decoration: underline;
+  color: #FFF;
+  margin-right: 190px;
+}
+
+.divSaibaMais {
+  display: flex;
+  
+}
+
+.sobreFoto {
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; 
+  position: relative; 
+  right: 80px;
+}
+
+
+/* ------------------SLIDER------------------ */
+* {
+  box-sizing: border-box
+}
+
+/* Slideshow container */
+.sobreFoto-container {
+  width: 100%;
+  max-height: 100%;
+  margin: auto;
+}
+
+.sobreFoto-container p {
+  color: #FFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  position: relative;
+  top: 5px;
+}
+
+/* Hide the images by default */
+.Integrantes {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* The radios/bullets/indicators */
+ .text {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+} 
+
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 0.7s;
+}
+
+@keyframes fade {
+  from {
+      opacity: .3
+  }
+
+  to {
+      opacity: 1
+  }
+}
+
+/* ------------------SOBRE MIM------------------ */
+.sobreMim{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.sobreMim-texto{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 50px;
+  padding-bottom: 200px;
+}
+
+.sobreMim p {
+  text-align: justify;
+  display: flex;
+  align-items:self-start;
+  justify-content: center;
+  color: whitesmoke;
+  flex-direction: column;
+  width: 60%;
+  height: 55vh;
+}
+
+.sobreMim-foto {
+  width: 200px;
+  height: 400px;
+  background-image: url(../assets/img/borinMini.jpg);
+  background-repeat: no-repeat;
+  position: relative;
+}

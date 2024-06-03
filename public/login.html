@@ -17,79 +17,61 @@
 </head>
 
 <body>
+  <!-- -------- MODAL MENSAGENS ----------- -->
+    <div class="modal1 modal">
+        <div class="contentmodal" id="modal_erro">
+        </div>
+      </div>
+      <div class="modal2 modal">
+        <div class="contentmodal" id="modal_exito">
+            USUÁRIO AUTENTICADO!
+        </div>
+      </div>
     <!-- -------HEADER inicio------- -->
-    <div class="header">
-        <div class="container">
-            <div class="header">
-                <nav class="navbar">
-                    <img class="logoBandaNav" href="./index.html" src="./assets/imgs/ORaioRappa.png" style="width: 95px;">
-                    <a href="./index.html">INICIAL</a>
-                    <a href="./index.html #chamaSobre">SOBRE</a>
-                    <a href="./index.html #Discografia">DISCOGRAFIA</a>
-                    <a href="./quiz.html">QUIZ</a>
-                    <a href="./login.html">LOGIN</a>
-                    <a href="./cadastro.html">CADASTRO</a>
-                </nav>
-            </div>
+    <div class="container">
+        <div class="header">
+            <nav class="navbar">
+                <img class="logoBandaNav" href="./index.html" src="./assets/imgs/ORaioRappa.png" style="width: 95px;">
+                <a href="./index.html">INICIAL</a>
+                <a href="./index.html #chamaSobre">SOBRE</a>
+                <a href="./index.html #Discografia">DISCOGRAFIA</a>
+                <a href="./antesQuiz.html">QUIZ</a>
+                <a href="./login.html">LOGIN</a>
+                <a href="./cadastro.html">CADASTRO</a>
+            </nav>
         </div>
     </div>
-    <!-- -------HEADER fim------- -->
 
-
-    <!-- <div class="login">
+    <!-----------MENSAGEM ERRO----------->
+    <div class="login">
         <div class="alerta_erro">
             <div class="card_erro" id="cardErro">
                 <span id="mensagem_erro"></span>
             </div>
         </div>
-
-        <div class="container">
-            <div class="card card-login">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
+        <!-- -------BODY início------- -->
+        <div class="alinhaConjunto">
+            <div class="conjunto">
+                <h2 class="title">Bem Vindo!</h2>
+                <div class="form">
+                    <input type="text" id="nome_input" class="form__input" autocomplete="off" placeholder=" ">
+                    <span class="form__span">Nome</span>
                 </div>
-
+                <div class="form">
+                    <input type="text" id="email_input" class="form__input" autocomplete="off" placeholder=" ">
+                    <span class="form__span">Email</span>
+                </div>
+                <div class="form">
+                    <input type="text" id="senha_input" class="form__input" autocomplete="off" placeholder=" ">
+                    <span class="form__span">Senha</span>
+                </div>
+                <p id="btn"><button onclick="entrar()" class="button">Entrar</button></p>
                 <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
+                    <img src="./assets/aguarde-pink3.gif" id="loading-  gif" />
                 </div>
-
-                <div id="div_erros_login"></div>
             </div>
-        </div> 
-    </div>-->
-
-    <!-- -------BODY início------- -->
-    <div class="alinhaConjunto">
-        <div class="conjunto">
-            <h2 class="title">Bem Vindo!</h2>
-            <div class="form">
-                <input type="text" id="nome_input" class="form__input" autocomplete="off" placeholder=" ">
-                <span class="form__span">Nome</span>
-            </div>
-            <div class="form">
-                <input type="text" id="email_input" class="form__input" autocomplete="off" placeholder=" ">
-                <span class="form__span">Email</span>
-            </div>
-            <div class="form">
-                <input type="text" id="senha_input" class="form__input" autocomplete="off" placeholder=" ">
-                <span class="form__span">Senha</span>
-            </div>
-            <p id="btn"><button onclick="entrar()" class="button">Entrar</button></p>
-            <div id="div_aguardar" class="loading-div">
-                <img src="./assets/aguarde-pink3.gif" id="loading-  gif" />
-              </div>
         </div>
-    </div>
-    <!-- -------BODY fim------- -->
+        <!-- -------BODY fim------- -->
 </body>
 
 </html>
@@ -98,19 +80,20 @@
     function entrar() {
         aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+      let emailVar = email_input.value;
+      let senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Houve um erro ao tentar realizar o login! Preencha todos os campos";
-            finalizarAguardar();
+            modal_erro.innerHTML = "OS CAMPOS DEVEM SER PREENCHIDOS"
+            validarLogin(1)
             return false;
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            validarSessao(emailVar, senhaVar)
         }
+    }
 
+    function validarSessao(emailVar, senhaVar) {
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
 
@@ -136,10 +119,7 @@
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
 
-                    setTimeout(function () {
-                        window.location = "./dashboard.html";
-                    }, 1000); // apenas para exibir o loading
-
+                    validarLogin(2)
                 });
 
             } else {
@@ -159,8 +139,42 @@
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
+
+    function validarLogin(numResposta) {
+
+        // Esconde todos os modais
+        const modais = document.querySelectorAll('.modal');
+        modais.forEach(modal => modal.style.display = 'none');
+
+        // Exibe o modal correspondente
+        const modalSelecionado = document.querySelector(`.modal${numResposta}`);
+        if (modalSelecionado) {
+            modalSelecionado.style.display = 'block';
+        }
+
+        if (numResposta == 1) {
+            setTimeout(function () {
+                sumirModal()
+                finalizarAguardar();
+                return false;
+            }, 2500)
+        }
+        else (
+            setTimeout(function () {
+                setTimeout(function () {
+                    window.location = "./dashboard.html";
+                }, 1500);
+                sumirModal()
+                finalizarAguardar();
+                return false;
+            }, 1000)
+        )
     }
+
+    function sumirModal() {
+      const modais = document.querySelectorAll('.modal');
+      modais.forEach(modal => modal.style.display = 'none');
+  }
+
 
 </script>

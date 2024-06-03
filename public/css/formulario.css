@@ -168,12 +168,21 @@ main {
 }
 
 .informacoes-album span {
-    font-size: 13px;
+    font-size: 14px;
     display: flex;
     margin-bottom: 8px;
     flex-direction: column;
+    text-align: left;
 }
 
+.informacoes-album u {
+    font-size: 14px;
+    display: flex;
+    margin-bottom: 8px;
+    flex-direction: column;
+    text-decoration: none;
+    text-align: center;
+}
 .imagemFormulario {
     width: 50%;
     height: 400px;
