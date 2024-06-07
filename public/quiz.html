@@ -12,12 +12,12 @@
 
 <body>
     <div class="boxQuiz" id="quiz">
-        <h1 id="mensagemBemVindo">Bem Vindo!</h1><br>
+        <h1 id="mensagemBemVindo">BEM VINDO!</h1><br>
         <h2 id="perguntaNumero"></h2>
-        <span id="mensagem">Clique no botão abaixo para iniciar o quiz, boa sorte!</span>
+        <span id="mensagem">CLIQUE NO BOTÃO ABAIXO PARA INICIAR O QUIZ, BOA SORTE!</span>
         <div id="question"></div>
         <div id="options"></div>
-        <button id="iniciar" onclick="iniciarQuiz()">Iniciar Quiz</button>
+        <button id="iniciar" onclick="iniciarQuiz()">INICIAR QUIZ</button>
 
     </div>
     <div class="midiaQuiz">
@@ -38,57 +38,57 @@
 
     const quizData = [
         {
-            question: "Qual foi o ano de formação da banda O Rappa?",
+            question: "QUAL FOI O ANO DE FORMAÇÃO DA BANDA O RAPPA?",
             options: ["1991", "1992", "1993", "1994"],
             answer: "1993"
         },
         {
-            question: "Entre os integrantes da banda, dois deles possuem o primeiro nome igual, qual é esse nome?",
-            options: ["Lauro", "Marcos", "Diego", "Marcelo"],
-            answer: "Marcelo"
+            question: "ENTRE OS INTEGRANTES DA BANDA, DOIS DELES POSSUEM O PRIMEIRO NOME IGUAL, QUAL É ESSE NOME?",
+            options: ["LAURO", "MARCOS", "DIEGO", "MARCELO"],
+            answer: "MARCELO"
         },
         {
-            question: "Qual é o nome do primeiro álbum da banda O Rappa?",
-            options: ["Rappa Mundi", "O Rappa", "Lado B Lado A", "Nunca Tem Fim..."],
-            answer: "O Rappa"
+            question: "QUAL É O NOME DO PRIMEIRO ÁLBUM DA BANDA O RAPPA?",
+            options: ["RAPPA Mundi", "O RAPPA", "LADO B LADO A", "NUNCA TEM FIM..."],
+            answer: "O RAPPA"
         },
         {
-            question: "Qual canção de O Rappa fala sobre a desigualdade social e foi lançada no álbum 'Lado B Lado A'",
+            question: "QUAL CANÇÃO DE O RAPPA FALA SOBRE A DESIGUALDADE SOCIAL E FOI LANÇADA NO ÁLBUM 'LADO B LADO A'?",
             options: ["O Que Sobrou do Céu", "Minha Alma", "A Feira", "Me Deixa"],
             answer: "Minha Alma"
         },
         {
-            question: "Qual é a música do O Rappa que tem a letra '...está armada e apontada para a cara do sossego'",
-            options: ["Anjos", "Me Deixa", "O Que Sobrou do Céu", "Minha Alma"],
-            answer: "Minha Alma"
+            question: "QUAL É A MÚSICA DO O RAPPA QUE TEM A LETRA '...ESTÁ ARMADA E APONTADA PARA A CARA DO SOSSEGO'?",
+            options: ["ANJOS", "ME DEIXA", "O QUE SOBROU DO CÉU", "MINHA ALMA"],
+            answer: "MINHA ALMA"
         },
         {
-            question: "Qual música de O Rappa tem a letra 'Se meus joelhos não doessem mais'",
-            options: ["Anjos", "Pescador de Ilusões", "O Que Sobrou do Céu", "Minha Alma"],
-            answer: "Pescador de Ilusões"
+            question: "QUAL MÚSICA DE O RAPPA TEM A LETRA 'SE MEUS JOELHOS NÃO DOESSEM MAIS'?",
+            options: ["ANJOS", "PESCADOR DE ILUSÕES", "O QUE SOBROU DO CÉU", "MINHA ALMA"],
+            answer: "PESCADOR DE ILUSÕES"
         },
         {
-            question: "Em qual cidade O Rappa foi formado?",
-            options: ["São Paulo", "Salvador", "Rio de Janeiro", "Belo Horizonte"],
-            answer: "Rio de Janeiro"
+            question: "EM QUAL CIDADE O RAPPA FOI FORMADO?",
+            options: ["SÃO PAULO", "SALVADOR", "RIO DE JANEIRO", "BELO HORIZONTE"],
+            answer: "RIO DE JANEIRO"
         },
         {
-            question: "Qual animal aparece na capa do disco 'O Silêncio Q Precede O Esporro'?",
-            options: ["Dragão", "Peixe", "Cobra", "Lagarto"],
-            answer: "Dragão"
+            question: "QUAL ANIMAL APARECE NA CAPA DO DISCO 'O SILÊNCIO Q PRECEDE O ESPORRO'?",
+            options: ["DRAGÃO", "PEIXE", "COBRA", "LAGARTO"],
+            answer: "DRAGÃO"
         },
         {
-            question: "Ao ler a história da banda, foi citado o intuito de sua criação, acompanhar um cantor que estava em turne no Brasil, qual era o nome do cantor?",
-            options: ["Planet Hemp", "Bob Marley", "Charlie Brown Jr.", "Papa Winnie"],
-            answer: "Papa Winnie"
+            question: "AO LER A HISTÓRIA DA BANDA, FOI CITADO O INTUITO DE SUA CRIAÇÃO, ACOMPANHAR UM CANTOR QUE ESTAVA EM TURNE NO BRASIL, QUAL ERA O NOME DO CANTOR?",
+            options: ["PLANET HEMP", "BOB MARLEY", "CHARLIE BROWN", "PAPA WINIE"],
+            answer: "PAPA WINIE"
         },
         {
-            question: "Qual álbum, contendo videoclipes icônicos e mensagens de resistência que influenciaram profundamente a música brasileira e continuam a ressoar com novas gerações, teve o maior impacto cultural?",
-            options: ["Nunca Tem Fim...", "Lado B Lado A", "O Silêncio Q Precede o Esporro", "Rappa Mundi"],
-            answer: "Lado B Lado A"
+            question: "QUAL ÁLBUM, CONTENDO VIDEOCLIPES ICÔNICOS E MENSAGENS DE RESISTÊNCIA QUE INFLUENCIARAM PROFUNDAMENTE A MÚSICA BRASILEIRA E CONTINUAM A RESSOAR COM NOVAS GERAÇÕES, TEVE O MAIOR IMPACTO CULTURAL?",
+            options: ["NUNCA TEM FIM...", "LADO B LADO A", "O SILÊNCIO Q PRECEDE O ESPORRO", "RAPPA MUNDI"],
+            answer: "LADO B LADO A"
         },
         {
-            question: "Em que ano O Rappa anunciou seu término?",
+            question: "EM QUE ANO O RAPPA ANUNCIOU SEU TÉRMINO?",
             options: ["2015", "2017", "2018", "2020"],
             answer: "2017"
         },

@@ -47,7 +47,6 @@ SELECT * FROM quiz;
 SELECT * FROM album;
 select * from formulario;
 
-drop table album;
-
+-- drop database projetoindividual;
 
 INSERT INTO formulario (fkUsuario, sexoUsuario) VALUES (1,'M');

@@ -111,7 +111,7 @@ li {
   align-items: center;
   justify-content: center;
   max-width: 55%;
-  text-align: justify;
+  text-align: left;
   font-size: larger;
   flex-direction: column;
 }
